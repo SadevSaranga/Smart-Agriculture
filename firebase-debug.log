@@ -1,0 +1,106 @@
+[debug] [2025-06-08T10:10:54.541Z] ----------------------------------------------------------------------
+[debug] [2025-06-08T10:10:54.575Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2025-06-08T10:10:54.576Z] CLI Version:   14.4.0
+[debug] [2025-06-08T10:10:54.576Z] Platform:      win32
+[debug] [2025-06-08T10:10:54.577Z] Node Version:  v22.16.0
+[debug] [2025-06-08T10:10:54.577Z] Time:          Sun Jun 08 2025 15:40:54 GMT+0530 (India Standard Time)
+[debug] [2025-06-08T10:10:54.577Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-08T10:10:55.210Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-08T10:10:55.211Z] > authorizing via signed-in user (sarangasadev@gmail.com)
+[debug] [2025-06-08T10:10:55.211Z] [iam] checking project smart-agriculture-system-fe7c6 for permissions ["firebase.projects.get"]
+[debug] [2025-06-08T10:10:55.213Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:10:55.213Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:10:55.215Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions [none]
+[debug] [2025-06-08T10:10:55.216Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions x-goog-quota-user=projects/smart-agriculture-system-fe7c6
+[debug] [2025-06-08T10:10:55.216Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-06-08T10:10:57.838Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions 200
+[debug] [2025-06-08T10:10:57.838Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-06-08T10:10:57.839Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:10:57.840Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:10:57.840Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-06-08T10:10:57.840Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/smart-agriculture-system-fe7c6
+[debug] [2025-06-08T10:11:00.156Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-06-08T10:11:00.156Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-06-08T10:11:00.157Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:00.157Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:00.157Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 [none]
+[debug] [2025-06-08T10:11:00.607Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 200
+[debug] [2025-06-08T10:11:00.608Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 {"projectNumber":"1052704207717","projectId":"smart-agriculture-system-fe7c6","lifecycleState":"ACTIVE","name":"Smart Agriculture System","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-05-28T10:30:54.281015Z"}
+[info] 
+[info] === Serving from 'D:\Academic\SEM05\New folder'...
+[info] 
+[debug] [2025-06-08T10:11:00.614Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:00.614Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:00.614Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites 
+[debug] [2025-06-08T10:11:02.278Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites 200
+[debug] [2025-06-08T10:11:02.278Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites {"sites":[{"name":"projects/smart-agriculture-system-fe7c6/sites/smart-agriculture-system-fe7c6","defaultUrl":"https://smart-agriculture-system-fe7c6.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-06-08T10:11:02.279Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:02.279Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:02.279Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config [none]
+[debug] [2025-06-08T10:11:03.614Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config 200
+[debug] [2025-06-08T10:11:03.614Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config {"projectId":"smart-agriculture-system-fe7c6","appId":"1:1052704207717:web:c89592a504d5fd11d7678c","databaseURL":"https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com","storageBucket":"smart-agriculture-system-fe7c6.firebasestorage.app","apiKey":"AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs","authDomain":"smart-agriculture-system-fe7c6.firebaseapp.com","messagingSenderId":"1052704207717"}
+[debug] [2025-06-08T10:11:03.630Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:03.630Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:11:03.630Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 [none]
+[debug] [2025-06-08T10:11:04.241Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 200
+[debug] [2025-06-08T10:11:04.242Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 {"projectId":"smart-agriculture-system-fe7c6","projectNumber":"1052704207717","displayName":"Smart Agriculture System","name":"projects/smart-agriculture-system-fe7c6","resources":{"hostingSite":"smart-agriculture-system-fe7c6","realtimeDatabaseInstance":"smart-agriculture-system-fe7c6-default-rtdb"},"state":"ACTIVE","etag":"1_8672ba19-0709-423c-a1e6-58f603e7f1c1"}
+[info] i  hosting[smart-agriculture-system-fe7c6]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[smart-agriculture-system-fe7c6]: Local server: http://localhost:5002 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5002\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:11:33 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:11:33 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:11:35 +0000] "GET /favicon.ico HTTP/1.1" 200 - "http://localhost:5002/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:11:35 +0000] \"GET /favicon.ico HTTP/1.1\" 200 - \"http://localhost:5002/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:17:02 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:17:02 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:17:08 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:17:08 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:17:09 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:17:09 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:17:12 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:17:12 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[debug] [2025-06-08T10:17:38.718Z] ----------------------------------------------------------------------
+[debug] [2025-06-08T10:17:38.733Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\HP\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2025-06-08T10:17:38.735Z] CLI Version:   14.4.0
+[debug] [2025-06-08T10:17:38.735Z] Platform:      win32
+[debug] [2025-06-08T10:17:38.735Z] Node Version:  v22.16.0
+[debug] [2025-06-08T10:17:38.736Z] Time:          Sun Jun 08 2025 15:47:38 GMT+0530 (India Standard Time)
+[debug] [2025-06-08T10:17:38.737Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-06-08T10:17:39.296Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-06-08T10:17:39.297Z] > authorizing via signed-in user (sarangasadev@gmail.com)
+[debug] [2025-06-08T10:17:39.297Z] [iam] checking project smart-agriculture-system-fe7c6 for permissions ["firebase.projects.get"]
+[debug] [2025-06-08T10:17:39.298Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:39.298Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:39.298Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions [none]
+[debug] [2025-06-08T10:17:39.299Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions x-goog-quota-user=projects/smart-agriculture-system-fe7c6
+[debug] [2025-06-08T10:17:39.299Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-06-08T10:17:42.098Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions 200
+[debug] [2025-06-08T10:17:42.099Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2025-06-08T10:17:42.100Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:42.101Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:42.101Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com [none]
+[debug] [2025-06-08T10:17:42.101Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com x-goog-quota-user=projects/smart-agriculture-system-fe7c6
+[debug] [2025-06-08T10:17:44.187Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com 200
+[debug] [2025-06-08T10:17:44.187Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/smart-agriculture-system-fe7c6/services/cloudresourcemanager.googleapis.com [omitted]
+[debug] [2025-06-08T10:17:44.188Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:44.188Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:44.188Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 [none]
+[debug] [2025-06-08T10:17:44.623Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 200
+[debug] [2025-06-08T10:17:44.623Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/projects/smart-agriculture-system-fe7c6 {"projectNumber":"1052704207717","projectId":"smart-agriculture-system-fe7c6","lifecycleState":"ACTIVE","name":"Smart Agriculture System","labels":{"firebase":"enabled","firebase-core":"disabled"},"createTime":"2025-05-28T10:30:54.281015Z"}
+[info] 
+[info] === Serving from 'D:\Academic\SEM05\New folder'...
+[info] 
+[debug] [2025-06-08T10:17:44.630Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:44.631Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:44.631Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites 
+[debug] [2025-06-08T10:17:45.931Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites 200
+[debug] [2025-06-08T10:17:45.931Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/sites {"sites":[{"name":"projects/smart-agriculture-system-fe7c6/sites/smart-agriculture-system-fe7c6","defaultUrl":"https://smart-agriculture-system-fe7c6.web.app","type":"DEFAULT_SITE"}]}
+[debug] [2025-06-08T10:17:45.932Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:45.932Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:45.932Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config [none]
+[debug] [2025-06-08T10:17:47.223Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config 200
+[debug] [2025-06-08T10:17:47.223Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6/webApps/-/config {"projectId":"smart-agriculture-system-fe7c6","appId":"1:1052704207717:web:c89592a504d5fd11d7678c","databaseURL":"https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com","storageBucket":"smart-agriculture-system-fe7c6.firebasestorage.app","apiKey":"AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs","authDomain":"smart-agriculture-system-fe7c6.firebaseapp.com","messagingSenderId":"1052704207717"}
+[debug] [2025-06-08T10:17:47.239Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:47.239Z] Checked if tokens are valid: true, expires at: 1749380916418
+[debug] [2025-06-08T10:17:47.240Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 [none]
+[debug] [2025-06-08T10:17:48.005Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 200
+[debug] [2025-06-08T10:17:48.005Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/smart-agriculture-system-fe7c6 {"projectId":"smart-agriculture-system-fe7c6","projectNumber":"1052704207717","displayName":"Smart Agriculture System","name":"projects/smart-agriculture-system-fe7c6","resources":{"hostingSite":"smart-agriculture-system-fe7c6","realtimeDatabaseInstance":"smart-agriculture-system-fe7c6-default-rtdb"},"state":"ACTIVE","etag":"1_8672ba19-0709-423c-a1e6-58f603e7f1c1"}
+[info] i  hosting[smart-agriculture-system-fe7c6]: Serving hosting files from: public {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mpublic\u001b[22m"}}
+[info] +  hosting[smart-agriculture-system-fe7c6]: Local server: http://localhost:5003 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5003\u001b[22m\u001b[24m"}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:18:00 +0000] "GET / HTTP/1.1" 200 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:18:00 +0000] \"GET / HTTP/1.1\" 200 - \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
+[info] i  hosting: ::1 - - [08/Jun/2025:10:18:00 +0000] "GET /favicon.ico HTTP/1.1" 200 - "http://localhost:5003/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" {"metadata":{"emulator":{"name":"hosting"},"message":"::1 - - [08/Jun/2025:10:18:00 +0000] \"GET /favicon.ico HTTP/1.1\" 200 - \"http://localhost:5003/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36\""}}
