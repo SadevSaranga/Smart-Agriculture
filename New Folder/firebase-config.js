@@ -4,11 +4,11 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-aut
 
 // Your project's Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCmtglyxNbz94KGLMRqMFDDmAtNntquBs",
+  apiKey: "AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs",
   authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
   databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
   projectId: "smart-agriculture-system-fe7c6",
-  storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
+  storageBucket: "smart-agriculture-system-fe7c6.firebasestorage.app",
   messagingSenderId: "1052704207717",
   appId: "1:1052704207717:web:c89592a504d5fd11d7678c"
 };
@@ -17,4 +17,8 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export { auth };
+console.log("API Key:", firebaseConfig.apiKey);
+
+
+export { auth};
+
