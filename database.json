@@ -1,0 +1,8 @@
+{
+  "sensors": {
+    "humidity": 59,
+    "moisture": 100,
+    "temperature": 32.5,
+    "timestamp": 94334
+  }
+}
