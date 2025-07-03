@@ -100,7 +100,7 @@ document.getElementById('magic-link-btn')?.addEventListener('click', async () =>
     if (methods.length === 0) {
       const shouldSignUp = confirm("No account found with this email. Would you like to sign up instead?");
       if (shouldSignUp) {
-        window.location.href = "directSignUp.php";
+        window.location.href = "signup.html";
       }
       return;
     }
@@ -113,7 +113,7 @@ document.getElementById('magic-link-btn')?.addEventListener('click', async () =>
     if (error.code === 'auth/user-not-found') {
       const shouldSignUp = confirm("No account found with this email. Would you like to sign up instead?");
       if (shouldSignUp) {
-        window.location.href = "directSignUp.php";
+        window.location.href = "signup.html";
       }
     } else {
       handleAuthError(error);
