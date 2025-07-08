@@ -60,3 +60,13 @@ nav {
     
 }
 
+.login-body {
+  background-image: url('./Resources/login-background2.webp');
+  background-size: cover;            /* Scale the background to cover the viewport */
+  background-position: center center;/* Keep it centered */
+  background-repeat: no-repeat;
+  background-attachment: fixed;      /* Optional: parallax effect */
+  height: 100vh;                     /* Full height */
+  width: 100%;
+}
+

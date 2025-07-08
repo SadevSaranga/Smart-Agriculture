@@ -1,89 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>University Website</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>University Website</title>
+    <!-- Bootstrap CSS CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-  <!-- Bootstrap CSS CDN -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="./Resources/logo.png" />
 
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="./Resources/logo.png" />
-  
-  <style>
-    /* Optional: Make the logo a bit smaller on smaller devices */
-    @media (max-width: 576px) {
-      .navbar-brand img {
-        width: 50px !important;
-        margin-left: 5px !important;
+    <style>
+      /* Optional: Make the logo a bit smaller on smaller devices */
+      @media (max-width: 576px) {
+        .navbar-brand img {
+          width: 50px !important;
+          margin-left: 5px !important;
+        }
       }
-    }
-  </style>
-</head>
+    </style>
+  </head>
 
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark ">
-    <div class="container-fluid">
-      <!-- Logo -->
-      <a class="navbar-brand" href="#">
-        <img src="./Resources/logo.gif" alt="LMS logo" style="width: 60px; border-radius: 50%;" />
-      </a>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="#">
+          <img
+            src="./Resources/logo.gif"
+            alt="LMS logo"
+            style="width: 60px; border-radius: 50%"
+          />
+        </a>
 
-      <!-- Toggler for Mobile -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <!-- Toggler for Mobile -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <!-- Navbar Links + Search -->
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
-          <li class="nav-item me-lg-3">
-            <a class="nav-link text-light fs-5" href="#">Home</a>
-          </li>
-          <li class="nav-item dropdown me-lg-3">
-            <a class="nav-link dropdown-toggle text-light fs-5" href="#" id="aboutDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">About</a>
-            <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
-              <li><a class="dropdown-item fs-5" href="#">Contacts</a></li>
-              <li><a class="dropdown-item fs-5" href="#">History</a></li>
-              <li><a class="dropdown-item fs-5" href="#">Services</a></li>
-              <li><a class="dropdown-item fs-5" href="#">Programmes</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown me-lg-3">
-            <a class="nav-link dropdown-toggle text-light fs-5" href="#" id="moreDropdown" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false">More</a>
-            <ul class="dropdown-menu" aria-labelledby="moreDropdown">
-              <li><a class="dropdown-item fs-5" href="#">Packages</a></li>
-              <li><a class="dropdown-item fs-5" href="#">Billings</a></li>
-              <li><a class="dropdown-item fs-5" href="#">Staff</a></li>
-            </ul>
-          </li>
-          <li class="nav-item d-lg-none mt-3">
-            <!-- Search input for small screens -->
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button class="btn btn-outline-light" type="submit">Search</button>
-            </form>
-          </li>
-        </ul>
+        <!-- Navbar Links + Search -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+            <li class="nav-item me-lg-3">
+              <a class="nav-link text-light fs-5" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown me-lg-3">
+              <a
+                class="nav-link dropdown-toggle text-light fs-5"
+                href="#"
+                id="aboutDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >About</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+                <li><a class="dropdown-item fs-5" href="#">Contacts</a></li>
+                <li><a class="dropdown-item fs-5" href="#">History</a></li>
+                <li><a class="dropdown-item fs-5" href="#">Services</a></li>
+                <li><a class="dropdown-item fs-5" href="#">Programmes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown me-lg-3">
+              <a
+                class="nav-link dropdown-toggle text-light fs-5"
+                href="#"
+                id="moreDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >More</a
+              >
+              <ul class="dropdown-menu" aria-labelledby="moreDropdown">
+                <li><a class="dropdown-item fs-5" href="#">Packages</a></li>
+                <li><a class="dropdown-item fs-5" href="#">Billings</a></li>
+                <li><a class="dropdown-item fs-5" href="#">Staff</a></li>
+              </ul>
+            </li>
+            <li class="nav-item d-lg-none mt-3">
+              <!-- Search input for small screens -->
+              <form class="d-flex" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="btn btn-outline-light" type="submit">
+                  Search
+                </button>
+              </form>
+            </li>
+          </ul>
 
-        <!-- Search form for lg and above -->
-        <form class="d-flex ms-lg-3 d-none d-lg-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-            style="width: 300px; box-shadow: 0 0 10px 2px rgb(247, 248, 246)" />
-          <button class="btn btn-outline-light" type="submit">Search</button>
-        </form>
+          <!-- Search form for lg and above -->
+          <form class="d-flex ms-lg-3 d-none d-lg-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              style="width: 300px; box-shadow: 0 0 10px 2px rgb(247, 248, 246)"
+            />
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </form>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Bootstrap JS Bundle CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
-</body>
-
+    <!-- Bootstrap JS Bundle CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
