@@ -102,7 +102,7 @@
       <form id="moistureForm">
         <div class="row g-3">
           <div class="col-md-6">
-            <label for="product_ID" class="form-label">Select Ground (Product ID)</label>
+            <label for="product_ID" class="form-label">Enter Product ID</label>
             <input type="text" class="form-control" id="product_ID" placeholder="e.g. P2389" required />
             <small class="text-muted">Enter the product/field identifier</small>
           </div>
@@ -280,54 +280,27 @@
 
     // Firebase update function with detailed error handling
     function updateMoistureThreshold(productID, threshold) {
-      console.log(`Attempting to update ${productID} with threshold: ${threshold}%`);
+  const productRef = database.ref(productID);
 
-      const productRef = database.ref(productID);
+  console.log("Writing to Firebase path:", productID);
 
-      // First, try to read to verify permissions
-      productRef.once('value')
-        .then((snapshot) => {
-          console.log("✅ Read permission verified");
-          
-          // Now try to write
-          return productRef.update({
-            moisture_threshold: threshold,
-            last_updated: new Date().toISOString()
-          });
-        })
-        .then(() => {
-          console.log(`✅ Successfully updated ${productID} to ${threshold}%`);
-          showSuccess();
+  // Guaranteed write — no buffering
+  productRef.set({
+      moisture_threshold: threshold,
+      moisture_live: threshold,
+      last_updated: new Date().toISOString()
+  })
+  .then(() => {
+      console.log("✅ Data saved successfully!");
+      alert("Moisture value saved!");
+      window.location.href = "dashboard.html";
+  })
+  .catch((error) => {
+      console.error("❌ Firebase Error:", error);
+      alert("Firebase error: " + error.message);
+  });
+}
 
-          // Redirect after delay
-          setTimeout(() => {
-            window.location.href = "dashboard.html";
-          }, 1500);
-        })
-        .catch((error) => {
-          console.error("❌ Firebase error:", error);
-          
-          let errorMsg = "Could not update moisture threshold";
-          let errorDetail = "";
-
-          if (error.code === 'PERMISSION_DENIED') {
-            errorMsg = "Permission Denied";
-            errorDetail = "Database rules do not allow this operation. Please check Firebase security rules.";
-          } else if (error.code === 'NETWORK_ERROR') {
-            errorMsg = "Network Error";
-            errorDetail = "Please check your internet connection.";
-          } else {
-            errorDetail = error.message || "Unknown error occurred";
-          }
-
-          showError(errorMsg, errorDetail);
-
-          // Hide error after 5 seconds
-          setTimeout(() => {
-            hideAllIndicators();
-          }, 5000);
-        });
-    }
 
     // Load saved values if available
     window.addEventListener('load', function() {
