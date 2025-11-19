@@ -396,8 +396,11 @@
       console.log("Writing to Firebase path:", productID);
 
       productRef.set({
-        moisture_threshold: threshold,
-        moisture_live: threshold,
+        temperature: "00",
+        humidity: "00",
+        soilPercent: "00",
+        pumpStatus: "N/A",
+        moisture_threshold: threshold, 
         last_updated: new Date().toISOString(),
         updated_by: currentUser ? currentUser.email : 'unknown'
       })
