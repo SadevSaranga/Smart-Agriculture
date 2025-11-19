@@ -16,6 +16,7 @@
       height: 50px;
       border-radius: 50%;
       object-fit: cover;
+      border: 2px solid #28a745;
     }
     .card {
       transition: transform 0.2s;
@@ -34,16 +35,34 @@
     footer a:hover {
       text-decoration: underline;
     }
+    .user-email {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logout-btn {
+      margin-left: 15px;
+    }
   </style>
 </head>
 
 <body>
   <!-- Top Header -->
+  <div data-include="Navbar.html" class="col-12"></div>
   <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center">
-      <h3>Hi, <span id="username">User</span> 👋</h3>
-      <img src="https://lh3.googleusercontent.com/a/ACg8ocKVGMChBkYVb75FQvh8lALNKZ2MQcykmZW_TZeAM8_6Cw7ONVc=s288-c-no"
-        alt="User DP" class="profile-img" id="userDP" />
+      <div>
+        <h3>Hi, <span id="username">User</span> 👋</h3>
+        <p class="user-email mb-0" id="userEmail">Loading...</p>
+      </div>
+      <div class="user-info">
+        <img src="https://via.placeholder.com/50" alt="User DP" class="profile-img" id="userDP" />
+        <button class="btn btn-sm btn-outline-danger logout-btn" id="logoutBtn" style="display: none;">Logout</button>
+      </div>
     </div>
   </div>
 
@@ -60,10 +79,10 @@
       <!-- Card 1 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/Ls8UPh3NHvt6a56dT-Jt0OTRkVS8vJWL0urzTByqr_E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kYW0udGhkc3RhdGljLmNvbS9jb250ZW50L3Byb2R1Y3Rpb24vSmF4V3ZzSWlLRFFwcDVzMHdDY0FlUS9QT2tERl9ReWZJTVpvVmJubWFfQ1NnL09yaWdpbmFsJTIwZmlsZS90aGUtYmVzdC1tdWxjaGVzLWZvci1Tb3V0aC1GbG9yaWRhLWhlcm8uanBn"
-            class="card-img-top" alt="Farm 1" />
+          <img src="https://imgs.search.brave.com/L6Db6cpYcBOrDZcrf-d_y1IZP29GPIIcsDCyJ5oz9hI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODE0QmZDKzlqNkwu/anBn"
+            class="card-img-top p-5 offset-1" style="width: 350px; height: 300px; " alt="Farm 1" />
           <div class="card-body">
-            <h5 class="card-title">Green Field A</h5>
+            <h5 class="card-title">Wet Zone</h5>
             <p class="card-text">Well-irrigated zone</p>
           </div>
         </div>
@@ -72,10 +91,10 @@
       <!-- Card 2 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/c5F8MmvMhQhIEAAGwOwHSxIGkLIS239Fi33Q40Ak9Dc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cudGhlc3BydWNlLmNvbS90aG1iL1gzdzFUSmF5cHIzdC1oeWNrN0lnSjRtbDJPUT0vZml0LWluLzE1MDB4MjY2Ny9maWx0ZXJzOm5vX3Vwc2NhbGUoKTptYXhfYnl0ZXMoMTUwMDAwKTpzdHJpcF9pY2MoKS9zcHItZ2Fpbi1leHByZXNzLXNvaWwtcGhtb2lzdHVyZS1tZXRlci1kaXNwbGF5LTItZGF2aWQtd2lsbGV5LWRiMGZhZmU2MjdiODQyYjE5NTFmY2QxN2FkMDQ1Nzg4LmpwZWc"
-            class="card-img-top" alt="Farm 2" />
+          <img src="https://imgs.search.brave.com/p5xRounQrw4TFC4YZtkIFX8FdZS6kouFp8VcpBD09B8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODFnQUpkaUxpbkwu/anBn"
+            class="card-img-top p-5" style="width: 400px; height: 300px; " alt="Farm 2" />
           <div class="card-body">
-            <h5 class="card-title">Field B - Dry Zone</h5>
+            <h5 class="card-title">Dry Zone</h5>
             <p class="card-text">Under water-conservation monitoring.</p>
           </div>
         </div>
@@ -84,10 +103,10 @@
       <!-- Card 3 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/4r7YHSXb0KSDN4-fav_lGfx-aBm-sVmAVmILtTv0ZMc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cuaG9tZWRlcG90LmNvbS9jYXRhbG9nL3Byb2R1Y3RJbWFnZXMvMTAwMC8xYy8xYzY5YmM5NS0wYTU1LTRlMTUtOWRmNS02ZmY0ODA5MTY5MThfMTAwMC5qcGc"
-            class="card-img-top" alt="Farm 3" />
+          <img src="https://imgs.search.brave.com/5gcjyGIfbdySq6tyMhXvgYjhS2qeUeLeWhAhnKQq7gE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9zbWFydC1ncmVl/bmhvdXNlLXN5c3Rl/bS13aXRoLWNsaW1h/dGUtY29udHJvbC10/ZWNobm9sb2d5XzE5/ODA2Ny0xMjU1MDE1/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA"
+            class="card-img-top p-5" style="width: 400px; height: 300px;" alt="Farm 3" />
           <div class="card-body">
-            <h5 class="card-title">Green House C</h5>
+            <h5 class="card-title">Green House</h5>
             <p class="card-text">Climate-controlled greenhouse</p>
           </div>
         </div>
@@ -152,35 +171,64 @@
     </div>
   </footer>
 
+  <script>
+    function includeHTML() {
+      const elements = document.querySelectorAll('[data-include]');
+
+      elements.forEach(element => {
+        const file = element.getAttribute('data-include');
+
+        if (file) {
+          fetch(file)
+            .then(response => {
+              if (response.ok) {
+                return response.text();
+              }
+              throw new Error('File not found: ' + file);
+            })
+            .then(data => {
+              element.innerHTML = data;
+            })
+            .catch(error => {
+              console.error('Error loading file:', error);
+              element.innerHTML = '<p>Content could not be loaded.</p>';
+            });
+        }
+      });
+    }
+  </script>
+
   <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
   <script>
-    // =====================================================
-    // IMPORTANT: Replace with YOUR FULL Firebase Config
-    // =====================================================
+    // Firebase Configuration
     const firebaseConfig = {
       apiKey: "AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs",
-        authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
-        databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
-        projectId: "smart-agriculture-system-fe7c6",
-        storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
-        messagingSenderId: "1052704207717",
-        appId: "1:1052704207717:web:c89592a504d5fd11d7678c"
+      authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
+      databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
+      projectId: "smart-agriculture-system-fe7c6",
+      storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
+      messagingSenderId: "1052704207717",
+      appId: "1:1052704207717:web:c89592a504d5fd11d7678c"
     };
 
     let database;
+    let auth;
     let isConnected = false;
+    let currentUser = null;
 
-    // Initialize Firebase with error handling
+    // Initialize Firebase
     try {
       if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig);
         console.log("✅ Firebase initialized successfully");
       }
       database = firebase.database();
+      auth = firebase.auth();
 
       // Test connection
       const connectedRef = database.ref(".info/connected");
@@ -200,6 +248,63 @@
       console.error("❌ Firebase initialization error:", error);
       showError("Firebase initialization failed", error.message);
     }
+
+    // Authentication State Observer
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        currentUser = user;
+        displayUserInfo(user);
+        console.log("✅ User logged in:", user.email);
+      } else {
+        console.log("⚠️ No user logged in");
+        // Redirect to login page or show login prompt
+        // window.location.href = "login.html";
+        displayGuestInfo();
+      }
+    });
+
+    // Display User Information
+    function displayUserInfo(user) {
+      // Display user's display name or email
+      const displayName = user.displayName || user.email.split('@')[0];
+      document.getElementById('username').textContent = displayName;
+      
+      // Display user's email
+      document.getElementById('userEmail').textContent = user.email;
+      
+      // Display user's photo
+      if (user.photoURL) {
+        document.getElementById('userDP').src = user.photoURL;
+      } else {
+        // If no photo, use a default avatar with user's initial
+        const initial = displayName.charAt(0).toUpperCase();
+        document.getElementById('userDP').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=28a745&color=fff&size=50`;
+      }
+      
+      // Show logout button
+      document.getElementById('logoutBtn').style.display = 'block';
+    }
+
+    // Display Guest Information (if not logged in)
+    function displayGuestInfo() {
+      document.getElementById('username').textContent = 'Guest';
+      document.getElementById('userEmail').textContent = 'Not logged in';
+      document.getElementById('userDP').src = 'https://ui-avatars.com/api/?name=Guest&background=6c757d&color=fff&size=50';
+      document.getElementById('logoutBtn').style.display = 'none';
+    }
+
+    // Logout Handler
+    document.getElementById('logoutBtn').addEventListener('click', function() {
+      auth.signOut().then(() => {
+        console.log("✅ User logged out");
+        alert("You have been logged out successfully!");
+        // Redirect to login page
+        // window.location.href = "login.html";
+      }).catch((error) => {
+        console.error("❌ Logout error:", error);
+        alert("Error logging out: " + error.message);
+      });
+    });
 
     // Show/Hide Status Indicators
     function showLoading() {
@@ -261,6 +366,12 @@
         return;
       }
 
+      // Check if user is logged in
+      if (!currentUser) {
+        alert("⚠️ Please log in to update moisture values");
+        return;
+      }
+
       // Check connection
       if (!isConnected) {
         showError("Not connected to Firebase", "Please check your internet connection and try again.");
@@ -278,29 +389,30 @@
       updateMoistureThreshold(productID, moisture);
     }
 
-    // Firebase update function with detailed error handling
+    // Firebase update function
     function updateMoistureThreshold(productID, threshold) {
-  const productRef = database.ref(productID);
+      const productRef = database.ref(productID);
 
-  console.log("Writing to Firebase path:", productID);
+      console.log("Writing to Firebase path:", productID);
 
-  // Guaranteed write — no buffering
-  productRef.set({
-      moisture_threshold: threshold,
-      moisture_live: threshold,
-      last_updated: new Date().toISOString()
-  })
-  .then(() => {
-      console.log("✅ Data saved successfully!");
-      alert("Moisture value saved!");
-      window.location.href = "dashboard.html";
-  })
-  .catch((error) => {
-      console.error("❌ Firebase Error:", error);
-      alert("Firebase error: " + error.message);
-  });
-}
-
+      productRef.set({
+        moisture_threshold: threshold,
+        moisture_live: threshold,
+        last_updated: new Date().toISOString(),
+        updated_by: currentUser ? currentUser.email : 'unknown'
+      })
+      .then(() => {
+        console.log("✅ Data saved successfully!");
+        showSuccess();
+        setTimeout(() => {
+          window.location.href = "dashboard.html";
+        }, 1500);
+      })
+      .catch((error) => {
+        console.error("❌ Firebase Error:", error);
+        showError("Failed to update moisture threshold", error.message);
+      });
+    }
 
     // Load saved values if available
     window.addEventListener('load', function() {

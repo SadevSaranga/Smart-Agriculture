@@ -1,6 +1,8 @@
 {
   "rules": {
-    ".read": "now < 1750962600000", 
-    ".write": "now < 1750962600000" 
+    "$productID": {
+      ".read": "auth != null",
+      ".write": "auth != null"
+    }
   }
 }
