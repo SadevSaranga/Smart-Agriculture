@@ -196,6 +196,9 @@
         }
       });
     }
+
+    // Call the function when the page loads
+    document.addEventListener('DOMContentLoaded', includeHTML);
   </script>
 
   <!-- Firebase SDK -->
@@ -396,13 +399,11 @@
       console.log("Writing to Firebase path:", productID);
 
       productRef.set({
-        temperature: "00",
-        humidity: "00",
-        soilPercent: "00",
+        temperature: "",
+        humidity: "",
+        soilPercent: "",
         pumpStatus: "N/A",
         moisture_threshold: threshold, 
-        last_updated: new Date().toISOString(),
-        updated_by: currentUser ? currentUser.email : 'unknown'
       })
       .then(() => {
         console.log("✅ Data saved successfully!");
