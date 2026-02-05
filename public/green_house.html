@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green House - Climate-Controlled Greenhouse System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #26a69a 0%, #00897b 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400"><rect fill="%23e0f2f1" width="800" height="400"/><path fill="%2326a69a" opacity="0.1" d="M0 250Q200 150 400 250T800 250V400H0Z"/></svg>');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .product-image {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .content {
+            padding: 60px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            color: #26a69a;
+            margin-bottom: 25px;
+            border-bottom: 3px solid #26a69a;
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            color: #00897b;
+            margin: 30px 0 15px;
+        }
+
+        p {
+            font-size: 1.15em;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1em;
+            margin-bottom: 0;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .benefits-list li {
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            background: #e0f2f1;
+            border-left: 5px solid #26a69a;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+
+        .benefits-list li:hover {
+            background: #b2dfdb;
+        }
+
+        .benefits-list li::before {
+            content: "✓ ";
+            color: #26a69a;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-right: 10px;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #26a69a 0%, #00897b 100%);
+            color: white;
+            padding: 50px 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: 3px solid white;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #26a69a;
+            padding: 15px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            background: #004d40;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .suitability-section {
+            margin: 30px 0;
+        }
+
+        .suitability-section h4 {
+            font-size: 1.5em;
+            color: #00897b;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #26a69a;
+        }
+
+        .criteria-box {
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid;
+        }
+
+        .criteria-box.suitable {
+            background: #e0f2f1;
+            border-left-color: #26a69a;
+        }
+
+        .criteria-box.optimal {
+            background: #e8f5e9;
+            border-left-color: #66bb6a;
+        }
+
+        .criteria-box.warning {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+
+        .criteria-box strong {
+            display: block;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 10px;
+        }
+
+        .detail-list li {
+            padding: 8px 0 8px 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .detail-list li::before {
+            content: "•";
+            position: absolute;
+            left: 10px;
+            color: #26a69a;
+            font-weight: bold;
+        }
+
+        .detail-list li strong {
+            display: inline;
+            color: #00897b;
+        }
+
+        .plant-reference {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .plant-category {
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .plant-category h4 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .plant-category p {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+
+        .plant-category em {
+            display: block;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+        }
+
+        .plant-category.excellent {
+            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
+            border-top: 4px solid #26a69a;
+        }
+
+        .plant-category.excellent h4 {
+            color: #004d40;
+        }
+
+        .plant-category.good {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border-top: 4px solid #66bb6a;
+        }
+
+        .plant-category.good h4 {
+            color: #2e7d32;
+        }
+
+        .plant-category.specialty {
+            background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+            border-top: 4px solid #ab47bc;
+        }
+
+        .plant-category.specialty h4 {
+            color: #6a1b9a;
+        }
+
+        .plant-category.advanced {
+            background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+            border-top: 4px solid #ffa726;
+        }
+
+        .plant-category.advanced h4 {
+            color: #e65100;
+        }
+
+        .climate-control-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            padding: 30px;
+            border-radius: 10px;
+            margin-top: 30px;
+            border-left: 5px solid #2196f3;
+        }
+
+        .climate-control-box h3 {
+            color: #1565c0;
+            margin-top: 0;
+        }
+
+        .climate-params {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .param-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .param-card h4 {
+            color: #1565c0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .param-card p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5em;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plant-reference {
+                grid-template-columns: 1fr;
+            }
+
+            .climate-params {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Green House</h1>
+            <p>Climate-Controlled Greenhouse System</p>
+        </header>
+
+        <div class="hero-image">
+            <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='300' viewBox='0 0 600 300'><rect fill='%23e0f2f1' width='600' height='300'/><path fill='none' stroke='%23666' stroke-width='3' d='M100 200 L100 100 L300 50 L500 100 L500 200'/><path fill='none' stroke='%23666' stroke-width='3' d='M100 200 L500 200'/><path fill='none' stroke='%23666' stroke-width='2' d='M150 200 L150 120'/><path fill='none' stroke='%23666' stroke-width='2' d='M250 200 L250 100'/><path fill='none' stroke='%23666' stroke-width='2' d='M350 200 L350 100'/><path fill='none' stroke='%23666' stroke-width='2' d='M450 200 L450 120'/><rect fill='%2326a69a' opacity='0.3' x='100' y='100' width='400' height='100'/><circle fill='%2366bb6a' cx='200' cy='170' r='15'/><circle fill='%234caf50' cx='250' cy='180' r='12'/><circle fill='%238bc34a' cx='300' cy='175' r='18'/><circle fill='%2366bb6a' cx='350' cy='165' r='14'/><circle fill='%234caf50' cx='400' cy='180' r='16'/><circle fill='%23ffeb3b' cx='450' cy='80' r='25' opacity='0.7'/><text x='50%25' y='280' text-anchor='middle' font-family='Arial' font-size='14' fill='%23666'>Climate-Controlled Growing Environment</text></svg>" alt="Green House System" class="product-image">
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>Professional Climate Control for Optimal Growth</h2>
+                <p>The <strong>Green House</strong> is a comprehensive climate-controlled greenhouse system that creates the perfect growing environment for your plants year-round. With advanced temperature, humidity, and light control, you can grow anything from delicate orchids to exotic tropical plants, regardless of external weather conditions.</p>
+                <p>Transform your growing space into a professional-grade greenhouse where every environmental parameter is precisely controlled for maximum plant health and productivity.</p>
+            </div>
+
+            <div class="section">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🌡️</div>
+                        <h3>Temperature Control</h3>
+                        <p>Automated heating and cooling systems maintain ideal temperature ranges for different plant species.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💨</div>
+                        <h3>Humidity Management</h3>
+                        <p>Precise humidity control with automated misting and ventilation systems.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">☀️</div>
+                        <h3>Light Optimization</h3>
+                        <p>Automated grow lights with adjustable spectrum and intensity for different growth stages.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌬️</div>
+                        <h3>Ventilation System</h3>
+                        <p>Smart air circulation prevents mold and maintains fresh air exchange.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💧</div>
+                        <h3>Integrated Irrigation</h3>
+                        <p>Combines with Wet Zone or Dry Zone systems for complete water management.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Remote Monitoring</h3>
+                        <p>Real-time data tracking and alerts via mobile app integration.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Benefits</h2>
+                <ul class="benefits-list">
+                    <li>Year-round growing regardless of outdoor climate</li>
+                    <li>Extend growing seasons for seasonal plants</li>
+                    <li>Protect plants from extreme weather and pests</li>
+                    <li>Grow exotic and tropical species in any location</li>
+                    <li>Increase crop yields with optimized conditions</li>
+                    <li>Automate environmental control for consistency</li>
+                    <li>Reduce disease and pest problems</li>
+                    <li>Perfect for commercial and hobby growers</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>Is Your Plant Suitable for Green House?</h2>
+                <p>The Green House system is designed for plants that benefit from controlled environmental conditions. It's particularly ideal for species that require specific temperature, humidity, or light levels that differ from your local climate.</p>
+                
+                <h3>🏡 Ideal Plant Characteristics</h3>
+                
+                <div class="suitability-section">
+                    <h4>Climate Requirements</h4>
+                    <div class="criteria-box suitable">
+                        <strong>✓ EXCELLENT FOR:</strong> Plants requiring specific environmental conditions
+                        <ul class="detail-list">
+                            <li>Tropical and subtropical species outside their native zones</li>
+                            <li>Plants sensitive to temperature fluctuations</li>
+                            <li>Species requiring high humidity (60-90%)</li>
+                            <li>Plants needing extended photoperiods or specific light spectrums</li>
+                        </ul>
+                    </div>
+                    <div class="criteria-box optimal">
+                        <strong>★ OPTIMAL FOR:</strong> High-value and specialty crops
+                        <ul class="detail-list">
+                            <li>Orchids and exotic flowering plants</li>
+                            <li>Tropical fruit plants (citrus, banana, papaya)</li>
+                            <li>Year-round vegetables and herbs</li>
+                            <li>Seedling propagation and plant nurseries</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="suitability-section">
+                    <h4>Growing Media Compatibility</h4>
+                    <div class="criteria-box suitable">
+                        <strong>✓ COMPATIBLE SYSTEMS:</strong>
+                        <ul class="detail-list">
+                            <li><strong>Soil-based:</strong> Traditional potting mixes with climate control</li>
+                            <li><strong>Hydroponic:</strong> Water-based growing with nutrient solutions</li>
+                            <li><strong>Aeroponic:</strong> Mist-based root systems</li>
+                            <li><strong>Mixed Systems:</strong> Combination of growing methods</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="suitability-section">
+                    <h4>Space Requirements</h4>
+                    <div class="criteria-box suitable">
+                        <strong>✓ SIZING CONSIDERATIONS:</strong>
+                        <ul class="detail-list">
+                            <li><strong>Small-scale (4x6 ft):</strong> Herb gardens, seedling propagation</li>
+                            <li><strong>Medium-scale (8x10 ft):</strong> Mixed vegetables, ornamental collections</li>
+                            <li><strong>Large-scale (12x20+ ft):</strong> Commercial production, extensive collections</li>
+                            <li><strong>Vertical Growing:</strong> Maximizes space with tiered systems</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="suitability-section">
+                    <h4>Growth Applications</h4>
+                    <div class="criteria-box suitable">
+                        <strong>✓ IDEAL APPLICATIONS:</strong>
+                        <ul class="detail-list">
+                            <li><strong>Propagation:</strong> Starting seeds and cuttings with precise control</li>
+                            <li><strong>Year-round Production:</strong> Continuous harvests of vegetables and herbs</li>
+                            <li><strong>Exotic Collections:</strong> Maintaining rare and specialty plants</li>
+                            <li><strong>Research & Education:</strong> Controlled experiments and demonstrations</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>📋 Plant Suitability Quick Reference</h3>
+                
+                <div class="plant-reference">
+                    <div class="plant-category excellent">
+                        <h4>Excellent Match - Tropical & Exotic Plants</h4>
+                        <p><strong>Orchids:</strong> Phalaenopsis, cattleya, dendrobium, oncidium</p>
+                        <p><strong>Tropical Foliage:</strong> Monstera, philodendron, anthurium, calathea</p>
+                        <p><strong>Exotic Fruits:</strong> Citrus, banana, papaya, passion fruit</p>
+                        <p><strong>Carnivorous Plants:</strong> Venus flytraps, pitcher plants, sundews</p>
+                        <p><em>Climate: 70-85°F, 60-80% humidity | Light: Moderate to bright indirect</em></p>
+                    </div>
+
+                    <div class="plant-category good">
+                        <h4>Perfect Match - Year-round Vegetables & Herbs</h4>
+                        <p><strong>Vegetables:</strong> Tomatoes, peppers, cucumbers, lettuce, spinach</p>
+                        <p><strong>Herbs:</strong> Basil, cilantro, parsley, mint, oregano</p>
+                        <p><strong>Microgreens:</strong> Fast-growing salad greens and garnishes</p>
+                        <p><strong>Strawberries:</strong> Continuous production varieties</p>
+                        <p><em>Climate: 65-75°F, 50-70% humidity | Light: Full spectrum grow lights</em></p>
+                    </div>
+
+                    <div class="plant-category specialty">
+                        <h4>Specialty Applications - High-value Crops</h4>
+                        <p><strong>Cut Flowers:</strong> Roses, gerbera daisies, lilies, carnations</p>
+                        <p><strong>Bonsai:</strong> Temperature-sensitive species, tropical varieties</p>
+                        <p><strong>Medicinal Herbs:</strong> Ginseng, chamomile, echinacea</p>
+                        <p><strong>Rare Specimens:</strong> Collectors' plants and endangered species</p>
+                        <p><em>Requires precise environmental control and monitoring</em></p>
+                    </div>
+
+                    <div class="plant-category advanced">
+                        <h4>Advanced Systems - Commercial Production</h4>
+                        <p><strong>Hydroponic Lettuce:</strong> NFT or DWC systems for rapid growth</p>
+                        <p><strong>Cannabis:</strong> Controlled environment for legal cultivation</p>
+                        <p><strong>Mushroom Cultivation:</strong> High humidity specialty chambers</p>
+                        <p><strong>Seedling Production:</strong> Mass propagation for nurseries</p>
+                        <p><em>Professional-grade systems with advanced automation</em></p>
+                    </div>
+                </div>
+
+                <div class="climate-control-box">
+                    <h3>🎛️ Climate Control Parameters</h3>
+                    <p><strong>Customize these settings for different plant types:</strong></p>
+                    <div class="climate-params">
+                        <div class="param-card">
+                            <h4>🌡️ Temperature</h4>
+                            <p><strong>Range:</strong> 50-95°F</p>
+                            <p><strong>Precision:</strong> ±2°F</p>
+                            <p><strong>Day/Night:</strong> Programmable differential</p>
+                        </div>
+                        <div class="param-card">
+                            <h4>💧 Humidity</h4>
+                            <p><strong>Range:</strong> 30-95% RH</p>
+                            <p><strong>Precision:</strong> ±5%</p>
+                            <p><strong>Control:</strong> Misting + ventilation</p>
+                        </div>
+                        <div class="param-card">
+                            <h4>☀️ Light</h4>
+                            <p><strong>Spectrum:</strong> Full spectrum LED</p>
+                            <p><strong>Intensity:</strong> 100-1000 µmol/m²/s</p>
+                            <p><strong>Photoperiod:</strong> 0-24 hours</p>
+                        </div>
+                        <div class="param-card">
+                            <h4>🌬️ Ventilation</h4>
+                            <p><strong>Air Exchange:</strong> 1-10 times/hour</p>
+                            <p><strong>CO2:</strong> Optional enrichment</p>
+                            <p><strong>Circulation:</strong> Internal fans</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>Ready to Build Your Perfect Growing Environment?</h2>
+            <p style="font-size: 1.2em; margin: 20px 0;">Experience professional-grade climate control</p>
+            <a href="#" class="cta-button" id="getStartedBtn">Get Started Today</a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Green House Climate Systems. Grow anywhere, anytime.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('getStartedBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('This feature is not available yet. We are currently working on it!');
+        });
+    </script>
+</body>
+</html>
