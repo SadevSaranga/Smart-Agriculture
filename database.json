@@ -1,9 +1,12 @@
 {
-    "P2389": {
-      "humidity": 71,
-      "moisture_threshold": 50,
-      "pumpStatus": "ON",
-      "soilPercent": 0,
-      "temperature": 30
-    }
+  "P2389": {
+    "humidity": 71,
+    "moisture_threshold": 50,
+    "pumpStatus": "ON",
+    "soilPercent": 0,
+    "temperature": 30,
+    "wifiSSID": "YourNetworkName",
+    "wifiPassword": "YourPassword123",
+    "groundType": "greenhouse"
+  }
 }

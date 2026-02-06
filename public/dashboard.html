@@ -35,218 +35,254 @@
       animation-delay: 0ms;
       min-height: 100vh;
       padding: 20px;
-      color: var(--text-primary);
+      color: var(--text-color);
+      position: relative;
     }
 
+    /* Animated background keyframes */
     @keyframes background {
       0% {
         background-image: url(Resources/background.jpg);
-        background-size: 100% auto;
+        background-size: cover;
+        background-position: center;
       }
 
-      30% {
+      20% {
         background-image: url(Resources/background1.jpg);
-        background-size: 100% auto;
+        background-size: cover;
+        background-position: center;
+      }
+
+      40% {
+        background-image: url(Resources/background2.jpg);
+        background-size: cover;
+        background-position: center;
       }
 
       60% {
-        background-image: url(Resources/background2.jpg);
-        background-size: 100% auto;
+        background-image: url(Resources/background3.png);
+        background-size: cover;
+        background-position: center;
       }
 
       80% {
-        background-image: url(Resources/background3.png);
-        background-size: 100% auto;
+        background-image: url(Resources/background4.jpeg);
+        background-size: cover;
+        background-position: center;
       }
 
       100% {
-        background-image: url(Resources/background4.jpeg);
-        background-size: 100% auto;
+        background-image: url(Resources/background.jpg);
+        background-size: cover;
+        background-position: center;
       }
+    }
 
+    /* Overlay to make text more readable */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 0;
+      pointer-events: none;
     }
 
     .container {
       max-width: 1400px;
       margin: 0 auto;
-      background: var(--card-background);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
       overflow: hidden;
+      position: relative;
+      z-index: 1;
+      backdrop-filter: blur(10px);
     }
 
     .header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
       color: white;
-      padding: 30px;
+      padding: 40px 30px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+      opacity: 0.3;
     }
 
     .header h1 {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
-      font-weight: 300;
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .header p {
-      font-size: 1.1rem;
-      opacity: 0.9;
+      font-size: 1.2rem;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
     }
 
     .alert {
-      margin: 20px;
-      padding: 15px 20px;
-      border-radius: 10px;
+      margin: 25px;
+      padding: 18px 25px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 15px;
       font-weight: 500;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     }
 
     .alert-success {
-      background: rgba(39, 174, 96, 0.1);
-      border: 1px solid var(--success-color);
+      background: linear-gradient(135deg, rgba(39, 174, 96, 0.15) 0%, rgba(39, 174, 96, 0.05) 100%);
+      border-left: 4px solid var(--success-color);
       color: var(--success-color);
     }
 
     .alert-warning {
-      background: rgba(243, 156, 18, 0.1);
-      border: 1px solid var(--warning-color);
+      background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(243, 156, 18, 0.05) 100%);
+      border-left: 4px solid var(--warning-color);
       color: var(--warning-color);
     }
 
     .alert-danger {
-      background: rgba(231, 76, 60, 0.1);
-      border: 1px solid var(--danger-color);
+      background: linear-gradient(135deg, rgba(231, 76, 60, 0.15) 0%, rgba(231, 76, 60, 0.05) 100%);
+      border-left: 4px solid var(--danger-color);
       color: var(--danger-color);
-    }
-
-    .metrics-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .metric-card {
-      background: var(--card-background);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .metric-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    }
-
-    .metric-icon {
-      font-size: 2rem;
-      margin-bottom: 15px;
-    }
-
-    .metric-value {
-      font-size: 2.5rem;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .metric-label {
-      color: #7f8c8d;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     .dashboard-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 20px;
-      padding: 20px;
+      gap: 25px;
+      padding: 30px;
     }
 
     .chart-container {
-      background: var(--card-background);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--chart-color) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .chart-container:hover::before {
+      opacity: 1;
     }
 
     .chart-container:hover {
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
     }
 
     .chart-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     .chart-title-section {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
     }
 
     .chart-icon {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
+      padding: 12px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .temperature-icon {
       color: #ff6b6b;
+      background: rgba(255, 107, 107, 0.1);
     }
 
     .humidity-icon {
       color: #4ecdc4;
+      background: rgba(78, 205, 196, 0.1);
     }
 
     .moisture-icon {
       color: #96c93d;
+      background: rgba(150, 201, 61, 0.1);
     }
 
     .chart-title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 600;
       color: var(--text-color);
+      letter-spacing: -0.5px;
     }
 
     .status-indicator {
-      width: 15px;
-      height: 15px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: var(--danger-color);
       transition: all 0.3s ease;
-      animation: pulse 2s infinite;
+      position: relative;
     }
 
     .status-indicator.online {
       background: var(--success-color);
-      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.3);
+      box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.1);
-      }
-
-      100% {
-        transform: scale(1);
-      }
+    .status-indicator.online::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 8px;
+      height: 8px;
+      background: white;
+      border-radius: 50%;
     }
 
     .chart-value {
-      font-size: 2rem;
-      font-weight: bold;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      letter-spacing: -1px;
     }
 
     .temp-value {
@@ -262,16 +298,15 @@
     }
 
     .chart-wrapper {
-      height: 250px;
+      height: 280px;
       position: relative;
     }
 
     .status-bar {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      padding: 20px;
-      background: #f8f9fa;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 0;
+      background: rgba(248, 249, 250, 0.95);
       border-top: 1px solid var(--border-color);
     }
 
@@ -279,45 +314,41 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 15px;
+      justify-content: center;
+      padding: 25px 20px;
+      border-right: 1px solid rgba(0, 0, 0, 0.08);
+      transition: background 0.3s ease;
+    }
+
+    .status-item:last-child {
+      border-right: none;
+    }
+
+    .status-item:hover {
+      background: rgba(102, 126, 234, 0.05);
     }
 
     .status-label {
       color: #7f8c8d;
-      font-size: 0.9rem;
-      margin-bottom: 5px;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-weight: 500;
     }
 
     .status-value {
-      font-size: 1.2rem;
-      font-weight: 600;
+      font-size: 1.4rem;
+      font-weight: 700;
       color: var(--text-color);
     }
 
-    .debug-panel {
-      background: #2c3e50;
-      color: white;
-      padding: 20px;
-      margin: 20px;
-      border-radius: 10px;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-    }
-
-    .debug-panel h3 {
-      margin-bottom: 10px;
-      color: #3498db;
-    }
-
-    .debug-log {
-      max-height: 200px;
-      overflow-y: auto;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 10px;
-      border-radius: 5px;
+    footer {
+      position: relative;
+      z-index: 1;
     }
 
     @media (max-width: 768px) {
@@ -325,12 +356,21 @@
         grid-template-columns: 1fr;
       }
 
-      .metrics-row {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .header h1 {
         font-size: 2rem;
+      }
+
+      .chart-container {
+        padding: 20px;
+      }
+
+      .status-item {
+        border-right: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .status-item:last-child {
+        border-bottom: none;
       }
     }
   </style>
@@ -338,9 +378,9 @@
 
 <body>
   <div data-include="Navbar.html" class="col-12 fixed-top"></div>
-  <div class="container mb-5">
+  <div class="container mb-5" style="margin-top: 80px;">
     <div class="header">
-      <h1>Smart Agriculture Dashboard</h1>
+      <h1><i class="fas fa-leaf"></i> Smart Agriculture Dashboard</h1>
       <p>Real-time monitoring of your agricultural environment</p>
     </div>
 
@@ -349,39 +389,8 @@
       <span id="connectionStatus">Connecting to Firebase...</span>
     </div>
 
-    <div class="metrics-row">
-      <div class="metric-card">
-        <div class="metric-icon" style="color: var(--success-color);">
-          <i class="fas fa-seedling"></i>
-        </div>
-        <div class="metric-value" style="color: var(--success-color);" id="plantsHealthy">--</div>
-        <div class="metric-label">Healthy Plants</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="color: var(--warning-color);">
-          <i class="fas fa-exclamation-triangle"></i>
-        </div>
-        <div class="metric-value" style="color: var(--warning-color);" id="alertsActive">--</div>
-        <div class="metric-label">Active Alerts</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="color: #3498db;">
-          <i class="fas fa-tint"></i>
-        </div>
-        <div class="metric-value" style="color: #3498db;" id="waterUsage">--L</div>
-        <div class="metric-label">Water Usage Today</div>
-      </div>
-      <div class="metric-card">
-        <div class="metric-icon" style="color: #9b59b6;">
-          <i class="fas fa-chart-line"></i>
-        </div>
-        <div class="metric-value" style="color: #9b59b6;" id="efficiency">--%</div>
-        <div class="metric-label">System Efficiency</div>
-      </div>
-    </div>
-
     <div class="dashboard-grid">
-      <div class="chart-container">
+      <div class="chart-container" style="--chart-color: #ff6b6b;">
         <div class="chart-header">
           <div class="chart-title-section">
             <div class="chart-icon temperature-icon">
@@ -397,7 +406,7 @@
         </div>
       </div>
 
-      <div class="chart-container">
+      <div class="chart-container" style="--chart-color: #4ecdc4;">
         <div class="chart-header">
           <div class="chart-title-section">
             <div class="chart-icon humidity-icon">
@@ -413,7 +422,7 @@
         </div>
       </div>
 
-      <div class="chart-container">
+      <div class="chart-container" style="--chart-color: #96c93d;">
         <div class="chart-header">
           <div class="chart-title-section">
             <div class="chart-icon moisture-icon">
@@ -459,7 +468,7 @@
 
   </div>
   <!-- Footer -->
-  <footer class="container-fluid text-white mt-5 fixed-bottom mt-5"
+  <footer class="container-fluid text-white mt-5"
     style="background-color: rgb(20, 45, 21); box-shadow: 20px 0px 0px 0px rgb(164, 157, 157);">
     <div class="text-center py-3 border-top">
       &copy; 2024 Green Pulse | All rights reserved.
@@ -525,43 +534,21 @@
       database = getDatabase(app);
       isFirebaseInitialized = true;
 
-      addDebugLog("✅ Firebase initialized successfully");
+      console.log("✅ Firebase initialized successfully");
       updateConnectionStatus("Attempting to connect to database...", "warning");
 
     } catch (error) {
-      addDebugLog("❌ Firebase initialization failed: " + error.message);
+      console.error("❌ Firebase initialization failed:", error);
       updateConnectionStatus("Firebase initialization failed", "danger");
-      console.error("Firebase Error:", error);
-    }
-
-    // ✅ Debug logging function
-    function addDebugLog(message) {
-      const debugLog = document.getElementById('debugLog');
-      if (!debugLog) return; // Prevent null error if element not found
-      const timestamp = new Date().toLocaleTimeString();
-      const logEntry = document.createElement('div');
-      logEntry.textContent = `[${timestamp}] ${message}`;
-      debugLog.appendChild(logEntry);
-      debugLog.scrollTop = debugLog.scrollHeight;
-      console.log(message);
     }
 
     // ✅ Update connection alert visuals
     function updateConnectionStatus(message, type) {
       const alert = document.getElementById('connectionAlert');
       const status = document.getElementById('connectionStatus');
-      const firebaseStatus = document.getElementById('firebaseStatus');
 
       if (status) status.textContent = message;
       if (alert) alert.className = `alert alert-${type}`;
-      if (firebaseStatus) {
-        firebaseStatus.textContent =
-          type === 'success'
-            ? 'Connected'
-            : type === 'danger'
-              ? 'Error'
-              : 'Connecting...';
-      }
     }
 
     // ✅ Shared chart configuration
@@ -574,29 +561,30 @@
         plugins: {
           legend: { display: false },
           tooltip: {
-            backgroundColor: 'rgba(0,0,0,0.8)',
+            backgroundColor: 'rgba(0,0,0,0.85)',
             titleColor: 'white',
             bodyColor: 'white',
-            borderColor: 'rgba(255,255,255,0.2)',
+            borderColor: 'rgba(255,255,255,0.3)',
             borderWidth: 1,
-            cornerRadius: 8,
-            displayColors: false
+            cornerRadius: 10,
+            displayColors: false,
+            padding: 12
           }
         },
         scales: {
           x: {
-            title: { display: true, text: 'Time', color: '#7f8c8d' },
+            title: { display: true, text: 'Time', color: '#7f8c8d', font: { weight: '500' } },
             ticks: { color: '#7f8c8d' },
-            grid: { color: 'rgba(0,0,0,0.1)' }
+            grid: { color: 'rgba(0,0,0,0.05)' }
           },
           y: {
             beginAtZero: true,
             ticks: { color: '#7f8c8d' },
-            grid: { color: 'rgba(0,0,0,0.1)' }
+            grid: { color: 'rgba(0,0,0,0.05)' }
           }
         },
         elements: {
-          point: { radius: 4, hoverRadius: 8, hitRadius: 10 },
+          point: { radius: 5, hoverRadius: 9, hitRadius: 10, borderWidth: 2 },
           line: { tension: 0.4, borderWidth: 3 }
         }
       }
@@ -611,7 +599,7 @@
           label: 'Temperature (°C)',
           data: [],
           borderColor: '#ff6b6b',
-          backgroundColor: 'rgba(255,107,107,0.1)',
+          backgroundColor: 'rgba(255,107,107,0.15)',
           fill: true
         }]
       }
@@ -625,7 +613,7 @@
           label: 'Humidity (%)',
           data: [],
           borderColor: '#4ecdc4',
-          backgroundColor: 'rgba(78,205,196,0.1)',
+          backgroundColor: 'rgba(78,205,196,0.15)',
           fill: true
         }]
       }
@@ -639,32 +627,15 @@
           label: 'Soil Moisture (%)',
           data: [],
           borderColor: '#96c93d',
-          backgroundColor: 'rgba(150,201,61,0.1)',
+          backgroundColor: 'rgba(150,201,61,0.15)',
           fill: true
         }]
       }
     });
 
-      // Function to update moisture threshold in Firebase
-    function updateMoistureThreshold(productID, threshold) {
-      const thresholdRef = database.ref('settings/threshold_' + productID);
-
-      thresholdRef
-        .set(threshold)
-        .then(() => {
-          console.log(`Threshold for ${productID} updated successfully to ${threshold}!`);
-        })
-        .catch((error) => {
-          console.error("Error updating threshold:", error);
-          alert("Error updating threshold. Check console for details.");
-        });
-    }
-
-
     // ✅ Global dashboard variables
     let dataPointCount = 0;
     const startTime = Date.now();
-    let lastSensorData = { temperature: null, humidity: null, moisture: null };
     let isConnected = false;
 
     // ✅ Chart update helper
@@ -687,43 +658,8 @@
       if (indicator) indicator.classList.add('online');
 
       document.getElementById('lastUpdate').textContent = now;
-      document.getElementById('lastDataTime').textContent = now;
 
       dataPointCount++;
-      addDebugLog(`📊 ${valueElementId}: ${value}${unit}`);
-    }
-
-    // ✅ Metrics update
-    function updateMetrics(temperature, humidity, moisture) {
-      if (temperature == null || humidity == null || moisture == null) return;
-
-      const tempStatus = temperature >= 20 && temperature <= 30 ? 'optimal' : 'warning';
-      const humidityStatus = humidity >= 40 && humidity <= 70 ? 'optimal' : 'warning';
-      const moistureStatus = moisture >= 30 && moisture <= 70 ? 'optimal' : moisture === 0 ? 'critical' : 'warning';
-
-      let healthyPlants = 150;
-      if (tempStatus !== 'optimal') healthyPlants -= 10;
-      if (humidityStatus !== 'optimal') healthyPlants -= 8;
-      if (moistureStatus === 'critical') healthyPlants -= 20;
-      else if (moistureStatus !== 'optimal') healthyPlants -= 5;
-      document.getElementById('plantsHealthy').textContent = Math.max(100, healthyPlants);
-
-      let alerts = 0;
-      if (temperature > 35 || temperature < 15) alerts++;
-      if (humidity > 80 || humidity < 30) alerts++;
-      if (moisture === 0) alerts += 2;
-      else if (moisture < 20) alerts++;
-      document.getElementById('alertsActive').textContent = alerts;
-
-      const waterUsage = moisture < 30 ? Math.floor(35 + (30 - moisture)) : Math.floor(20 + Math.random() * 10);
-      document.getElementById('waterUsage').textContent = waterUsage + 'L';
-
-      let efficiency = 100;
-      if (tempStatus !== 'optimal') efficiency -= 10;
-      if (humidityStatus !== 'optimal') efficiency -= 8;
-      if (moistureStatus === 'critical') efficiency -= 25;
-      else if (moistureStatus !== 'optimal') efficiency -= 12;
-      document.getElementById('efficiency').textContent = Math.max(60, efficiency) + '%';
     }
 
     // ✅ Uptime + data count updater
@@ -747,9 +683,7 @@
         onValue(ref(database, `${productID}/temperature`), (snapshot) => {
           if (snapshot.exists()) {
             const temperature = parseFloat(snapshot.val());
-            lastSensorData.temperature = temperature;
             updateChart(tempChart, temperature, 'tempValue', '°C', 'tempIndicator');
-            updateMetrics(lastSensorData.temperature, lastSensorData.humidity, lastSensorData.moisture);
 
             if (!isConnected) {
               isConnected = true;
@@ -762,19 +696,15 @@
         onValue(ref(database, `${productID}/humidity`), (snapshot) => {
           if (snapshot.exists()) {
             const humidity = parseInt(snapshot.val());
-            lastSensorData.humidity = humidity;
             updateChart(humidityChart, humidity, 'humidityValue', '%', 'humidityIndicator');
-            updateMetrics(lastSensorData.temperature, lastSensorData.humidity, lastSensorData.moisture);
           }
         });
 
         // Moisture
-        onValue(ref(database, `${productID}/moisture`), (snapshot) => {
+        onValue(ref(database, `${productID}/soilPercent`), (snapshot) => {
           if (snapshot.exists()) {
             const moisture = parseInt(snapshot.val());
-            lastSensorData.moisture = moisture;
             updateChart(moistureChart, moisture, 'moistureValue', '%', 'moistureIndicator');
-            updateMetrics(lastSensorData.temperature, lastSensorData.humidity, lastSensorData.moisture);
           }
         });
 
@@ -786,26 +716,24 @@
           isConnected = connected;
         });
 
-        addDebugLog("🔄 Firebase listeners attached successfully");
+        console.log("🔄 Firebase listeners attached successfully");
 
       } catch (error) {
-        addDebugLog("❌ Failed to setup Firebase listeners: " + error.message);
+        console.error("❌ Failed to setup Firebase listeners:", error);
       }
     } else {
-      addDebugLog("❌ Cannot setup listeners - Firebase not initialized");
+      console.error("❌ Cannot setup listeners - Firebase not initialized");
     }
 
     // ✅ Initialize dashboard after DOM load
     document.addEventListener('DOMContentLoaded', () => {
-      addDebugLog("🚀 Dashboard initialized");
+      console.log("🚀 Dashboard initialized");
       setInterval(updateStatusBar, 1000);
       updateStatusBar();
-      // Update threshold in Firebase
-      updateMoistureThreshold(productID, moisture);
 
       setTimeout(() => {
         if (!isConnected) {
-          addDebugLog("⚠️ No data received after 5 seconds - check Firebase configuration");
+          console.warn("⚠️ No data received after 5 seconds - check Firebase configuration");
           updateConnectionStatus("No data received - check configuration", "warning");
         }
       }, 5000);
