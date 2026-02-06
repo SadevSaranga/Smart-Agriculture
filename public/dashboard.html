@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Smart Agriculture Dashboard</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+  
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
   <style>
     :root {
       --primary-color: #2c3e50;
@@ -21,86 +27,25 @@
       --border-color: #bdc3c7;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      animation-name: background;
-      animation-duration: 40s;
-      animation-iteration-count: infinite;
-      animation-delay: 0ms;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--text-color);
       min-height: 100vh;
       padding: 20px;
-      color: var(--text-color);
       position: relative;
     }
 
-    /* Animated background keyframes */
-    @keyframes background {
-      0% {
-        background-image: url(Resources/background.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      20% {
-        background-image: url(Resources/background1.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      40% {
-        background-image: url(Resources/background2.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      60% {
-        background-image: url(Resources/background3.png);
-        background-size: cover;
-        background-position: center;
-      }
-
-      80% {
-        background-image: url(Resources/background4.jpeg);
-        background-size: cover;
-        background-position: center;
-      }
-
-      100% {
-        background-image: url(Resources/background.jpg);
-        background-size: cover;
-        background-position: center;
-      }
-    }
-
-    /* Overlay to make text more readable */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .container {
+    .container-main {
       max-width: 1400px;
       margin: 0 auto;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.92);
       border-radius: 20px;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
       overflow: hidden;
+      backdrop-filter: blur(8px);
       position: relative;
       z-index: 1;
-      backdrop-filter: blur(10px);
     }
 
     .header {
@@ -108,638 +53,422 @@
       color: white;
       padding: 40px 30px;
       text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,154.7C960,171,1056,181,1152,165.3C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-      background-size: cover;
-      opacity: 0.3;
     }
 
     .header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      font-weight: 600;
-      position: relative;
-      z-index: 1;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+      font-weight: 700;
     }
 
-    .header p {
-      font-size: 1.2rem;
-      opacity: 0.95;
-      position: relative;
-      z-index: 1;
-    }
-
-    .alert {
-      margin: 25px;
-      padding: 18px 25px;
+    .alert-floating {
+      margin: 20px 30px;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      font-weight: 500;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .alert-success {
-      background: linear-gradient(135deg, rgba(39, 174, 96, 0.15) 0%, rgba(39, 174, 96, 0.05) 100%);
-      border-left: 4px solid var(--success-color);
-      color: var(--success-color);
-    }
-
-    .alert-warning {
-      background: linear-gradient(135deg, rgba(243, 156, 18, 0.15) 0%, rgba(243, 156, 18, 0.05) 100%);
-      border-left: 4px solid var(--warning-color);
-      color: var(--warning-color);
-    }
-
-    .alert-danger {
-      background: linear-gradient(135deg, rgba(231, 76, 60, 0.15) 0%, rgba(231, 76, 60, 0.05) 100%);
-      border-left: 4px solid var(--danger-color);
-      color: var(--danger-color);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     }
 
     .dashboard-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 24px;
       padding: 30px;
     }
 
-    .chart-container {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+    .card-chart {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+      transition: all 0.25s ease;
     }
 
-    .chart-container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--chart-color) 0%, transparent 100%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    .card-chart:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
     }
 
-    .chart-container:hover::before {
-      opacity: 1;
-    }
-
-    .chart-container:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
-    }
-
-    .chart-header {
+    .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
-    .chart-title-section {
+    .card-title {
       display: flex;
       align-items: center;
       gap: 12px;
+      font-size: 1.25rem;
+      font-weight: 600;
     }
 
-    .chart-icon {
-      font-size: 1.8rem;
-      padding: 12px;
+    .card-icon {
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 1.5rem;
     }
 
-    .temperature-icon {
-      color: #ff6b6b;
-      background: rgba(255, 107, 107, 0.1);
-    }
+    .icon-temp { background: #fff0f0; color: #ff6b6b; }
+    .icon-hum  { background: #e6f9f8; color: #4ecdc4; }
+    .icon-moist{ background: #f5fae8; color: #96c93d; }
 
-    .humidity-icon {
-      color: #4ecdc4;
-      background: rgba(78, 205, 196, 0.1);
-    }
-
-    .moisture-icon {
-      color: #96c93d;
-      background: rgba(150, 201, 61, 0.1);
-    }
-
-    .chart-title {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--text-color);
-      letter-spacing: -0.5px;
-    }
-
-    .status-indicator {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--danger-color);
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .status-indicator.online {
-      background: var(--success-color);
-      box-shadow: 0 0 0 4px rgba(39, 174, 96, 0.2);
-    }
-
-    .status-indicator.online::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 8px;
-      height: 8px;
-      background: white;
-      border-radius: 50%;
-    }
-
-    .chart-value {
-      font-size: 2.8rem;
+    .value-big {
+      font-size: 3.2rem;
       font-weight: 700;
-      margin-bottom: 25px;
-      letter-spacing: -1px;
+      margin: 12px 0 20px;
     }
 
-    .temp-value {
-      color: #ff6b6b;
-    }
+    .value-temp { color: #ff6b6b; }
+    .value-hum  { color: #4ecdc4; }
+    .value-moist{ color: #96c93d; }
 
-    .humidity-value {
-      color: #4ecdc4;
-    }
-
-    .moisture-value {
-      color: #96c93d;
-    }
-
-    .chart-wrapper {
-      height: 280px;
+    .chart-area {
+      height: 260px;
       position: relative;
     }
 
-    .status-bar {
+    .status-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 0;
-      background: rgba(248, 249, 250, 0.95);
-      border-top: 1px solid var(--border-color);
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      background: rgba(248,249,250,0.9);
+      border-top: 1px solid #dee2e6;
     }
 
-    .status-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 25px 20px;
-      border-right: 1px solid rgba(0, 0, 0, 0.08);
-      transition: background 0.3s ease;
+    .status-box {
+      padding: 24px;
+      text-align: center;
+      border-right: 1px solid #dee2e6;
     }
 
-    .status-item:last-child {
+    .status-box:last-child {
       border-right: none;
     }
 
-    .status-item:hover {
-      background: rgba(102, 126, 234, 0.05);
-    }
-
     .status-label {
-      color: #7f8c8d;
+      color: #6c757d;
       font-size: 0.85rem;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      font-weight: 500;
+      margin-bottom: 6px;
     }
 
     .status-value {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       font-weight: 700;
-      color: var(--text-color);
     }
 
-    footer {
-      position: relative;
-      z-index: 1;
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       .dashboard-grid {
         grid-template-columns: 1fr;
-      }
-
-      .header h1 {
-        font-size: 2rem;
-      }
-
-      .chart-container {
-        padding: 20px;
-      }
-
-      .status-item {
-        border-right: none;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-      }
-
-      .status-item:last-child {
-        border-bottom: none;
       }
     }
   </style>
 </head>
-
 <body>
+
   <div data-include="Navbar.html" class="col-12 fixed-top"></div>
-  <div class="container mb-5" style="margin-top: 80px;">
+
+  <div class="container-main mb-5" style="margin-top: 90px;">
     <div class="header">
-      <h1><i class="fas fa-leaf"></i> Smart Agriculture Dashboard</h1>
-      <p>Real-time monitoring of your agricultural environment</p>
+      <h1><i class="fas fa-leaf me-2"></i> Smart Agriculture Dashboard</h1>
+      <p>Real-time environmental monitoring</p>
     </div>
 
-    <div class="alert alert-danger" id="connectionAlert">
-      <i class="fas fa-exclamation-triangle"></i>
-      <span id="connectionStatus">Connecting to Firebase...</span>
+    <div class="alert alert-warning alert-floating d-flex align-items-center" id="connectionAlert">
+      <i class="fas fa-spinner fa-spin me-3 fs-4"></i>
+      <div>
+        <strong>Connecting...</strong><br>
+        <span id="connectionStatus">Waiting for Firebase connection</span>
+      </div>
     </div>
 
     <div class="dashboard-grid">
-      <div class="chart-container" style="--chart-color: #ff6b6b;">
-        <div class="chart-header">
-          <div class="chart-title-section">
-            <div class="chart-icon temperature-icon">
-              <i class="fas fa-thermometer-half"></i>
-            </div>
-            <div class="chart-title">Temperature</div>
+      <!-- Temperature -->
+      <div class="card-chart">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon icon-temp"><i class="fas fa-thermometer-half"></i></div>
+            <span>Temperature</span>
           </div>
-          <div class="status-indicator" id="tempIndicator"></div>
+          <div class="status-indicator online" id="tempIndicator"></div>
         </div>
-        <div class="chart-value temp-value" id="tempValue">--°C</div>
-        <div class="chart-wrapper">
+        <div class="value-big value-temp" id="tempValue">-- °C</div>
+        <div class="chart-area">
           <canvas id="tempChart"></canvas>
         </div>
       </div>
 
-      <div class="chart-container" style="--chart-color: #4ecdc4;">
-        <div class="chart-header">
-          <div class="chart-title-section">
-            <div class="chart-icon humidity-icon">
-              <i class="fas fa-tint"></i>
-            </div>
-            <div class="chart-title">Air Humidity</div>
+      <!-- Humidity -->
+      <div class="card-chart">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon icon-hum"><i class="fas fa-tint"></i></div>
+            <span>Air Humidity</span>
           </div>
           <div class="status-indicator" id="humidityIndicator"></div>
         </div>
-        <div class="chart-value humidity-value" id="humidityValue">--%</div>
-        <div class="chart-wrapper">
+        <div class="value-big value-hum" id="humidityValue">-- %</div>
+        <div class="chart-area">
           <canvas id="humidityChart"></canvas>
         </div>
       </div>
 
-      <div class="chart-container" style="--chart-color: #96c93d;">
-        <div class="chart-header">
-          <div class="chart-title-section">
-            <div class="chart-icon moisture-icon">
-              <i class="fas fa-seedling"></i>
-            </div>
-            <div class="chart-title">Soil Moisture</div>
+      <!-- Soil Moisture -->
+      <div class="card-chart">
+        <div class="card-header">
+          <div class="card-title">
+            <div class="card-icon icon-moist"><i class="fas fa-seedling"></i></div>
+            <span>Soil Moisture</span>
           </div>
           <div class="status-indicator" id="moistureIndicator"></div>
         </div>
-        <div class="chart-value moisture-value" id="moistureValue">--%</div>
-        <div class="chart-wrapper">
+        <div class="value-big value-moist" id="moistureValue">-- %</div>
+        <div class="chart-area">
           <canvas id="moistureChart"></canvas>
         </div>
       </div>
     </div>
 
-    <div class="status-bar">
-      <div class="status-item">
-        <div class="status-label">
-          <i class="fas fa-wifi"></i> System Status
-        </div>
+    <div class="status-grid mt-4">
+      <div class="status-box">
+        <div class="status-label"><i class="fas fa-wifi me-2"></i>System Status</div>
         <div class="status-value" id="systemStatus">Offline</div>
       </div>
-      <div class="status-item">
-        <div class="status-label">
-          <i class="fas fa-clock"></i> Last Update
-        </div>
+      <div class="status-box">
+        <div class="status-label"><i class="fas fa-clock me-2"></i>Last Update</div>
         <div class="status-value" id="lastUpdate">Never</div>
       </div>
-      <div class="status-item">
-        <div class="status-label">
-          <i class="fas fa-calendar"></i> Data Points
-        </div>
+      <div class="status-box">
+        <div class="status-label"><i class="fas fa-database me-2"></i>Data Points</div>
         <div class="status-value" id="dataPoints">0</div>
       </div>
-      <div class="status-item">
-        <div class="status-label">
-          <i class="fas fa-server"></i> Uptime
-        </div>
+      <div class="status-box">
+        <div class="status-label"><i class="fas fa-server me-2"></i>Uptime</div>
         <div class="status-value" id="uptime">00:00:00</div>
       </div>
     </div>
-
   </div>
+
   <!-- Footer -->
-  <footer class="container-fluid text-white mt-5"
-    style="background-color: rgb(20, 45, 21); box-shadow: 20px 0px 0px 0px rgb(164, 157, 157);">
-    <div class="text-center py-3 border-top">
-      &copy; 2024 Green Pulse | All rights reserved.
-      <a href="privacy.html" class="text-reset">Privacy Policy</a> |
-      <a href="terms.html" class="text-reset">Terms of Service</a>
+  <footer class="container-fluid text-white mt-5" style="background-color: rgb(20, 45, 21);">
+    <div class="text-center py-4 border-top">
+      © 2024 Green Pulse | All rights reserved
+      <div class="mt-2">
+        <a href="privacy.html" class="text-white text-decoration-none mx-3">Privacy Policy</a> |
+        <a href="terms.html" class="text-white text-decoration-none mx-3">Terms of Service</a>
+      </div>
     </div>
   </footer>
-  <script>
-    // Function to load external HTML files
-    function includeHTML() {
-      const elements = document.querySelectorAll('[data-include]');
 
-      elements.forEach(element => {
-        const file = element.getAttribute('data-include');
-
-        if (file) {
-          fetch(file)
-            .then(response => {
-              if (response.ok) {
-                return response.text();
-              }
-              throw new Error('File not found: ' + file);
-            })
-            .then(data => {
-              element.innerHTML = data;
-            })
-            .catch(error => {
-              console.error('Error loading file:', error);
-              element.innerHTML = '<p>Content could not be loaded.</p>';
-            });
-        }
-      });
-    }
-
-    // Call the function when the page loads
-    document.addEventListener('DOMContentLoaded', includeHTML);
-  </script>
+  <!-- Firebase SDK v10 modular -->
   <script type="module">
-    // ✅ RECEIVE PRODUCT ID from previous page
-    const productID = localStorage.getItem('productID') || "default_product";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
 
-    // ✅ Firebase imports with error handling
-    let database;
-    let isFirebaseInitialized = false;
+    // =============================================
+    //  YOUR FIREBASE CONFIG – MUST BE REAL
+    // =============================================
+    const firebaseConfig = {
+      apiKey:            "AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs",
+      authDomain:        "smart-agriculture-system-fe7c6.firebaseapp.com",
+      databaseURL:       "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
+      projectId:         "smart-agriculture-system-fe7c6",
+      storageBucket:     "smart-agriculture-system-fe7c6.appspot.com",
+      messagingSenderId: "1052704207717",
+      appId:             "1:1052704207717:web:c89592a504d5fd11d7678c"
+    };
 
-    try {
-      const { initializeApp } = await import("https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js");
-      const { getDatabase, ref, onValue } = await import("https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js");
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-      // ✅ Firebase configuration
-      const firebaseConfig = {
-        apiKey: "AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs",
-        authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
-        databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
-        projectId: "smart-agriculture-system-fe7c6",
-        storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
-        messagingSenderId: "1052704207717",
-        appId: "1:1052704207717:web:c89592a504d5fd11d7678c"
-      };
+    // Get product ID (you should set this from previous page)
+    const productID = localStorage.getItem('productID') || "P2389";  // fallback
 
-      // ✅ Initialize Firebase
-      const app = initializeApp(firebaseConfig);
-      database = getDatabase(app);
-      isFirebaseInitialized = true;
+    console.log("Dashboard started for device:", productID);
 
-      console.log("✅ Firebase initialized successfully");
-      updateConnectionStatus("Attempting to connect to database...", "warning");
+    // Connection status
+    const connectionAlert = document.getElementById('connectionAlert');
+    const connectionStatus = document.getElementById('connectionStatus');
 
-    } catch (error) {
-      console.error("❌ Firebase initialization failed:", error);
-      updateConnectionStatus("Firebase initialization failed", "danger");
+    function setConnection(message, type = 'info') {
+      connectionAlert.className = `alert alert-${type} alert-floating d-flex align-items-center`;
+      connectionStatus.textContent = message;
     }
 
-    // ✅ Update connection alert visuals
-    function updateConnectionStatus(message, type) {
-      const alert = document.getElementById('connectionAlert');
-      const status = document.getElementById('connectionStatus');
+    setConnection("Connecting to Firebase...", "warning");
 
-      if (status) status.textContent = message;
-      if (alert) alert.className = `alert alert-${type}`;
-    }
-
-    // ✅ Shared chart configuration
-    const chartConfig = {
-      type: 'line',
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        interaction: { intersect: false, mode: 'index' },
-        plugins: {
-          legend: { display: false },
-          tooltip: {
-            backgroundColor: 'rgba(0,0,0,0.85)',
-            titleColor: 'white',
-            bodyColor: 'white',
-            borderColor: 'rgba(255,255,255,0.3)',
-            borderWidth: 1,
-            cornerRadius: 10,
-            displayColors: false,
-            padding: 12
-          }
-        },
-        scales: {
-          x: {
-            title: { display: true, text: 'Time', color: '#7f8c8d', font: { weight: '500' } },
-            ticks: { color: '#7f8c8d' },
-            grid: { color: 'rgba(0,0,0,0.05)' }
-          },
-          y: {
-            beginAtZero: true,
-            ticks: { color: '#7f8c8d' },
-            grid: { color: 'rgba(0,0,0,0.05)' }
-          }
-        },
-        elements: {
-          point: { radius: 5, hoverRadius: 9, hitRadius: 10, borderWidth: 2 },
-          line: { tension: 0.4, borderWidth: 3 }
+    // =============================================
+    //  CHARTS SETUP (Chart.js v4)
+    // =============================================
+    const chartOptions = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: 'rgba(0,0,0,0.8)',
+          titleColor: 'white',
+          bodyColor: 'white',
+          borderColor: 'rgba(255,255,255,0.2)',
+          borderWidth: 1,
+          cornerRadius: 8,
+          padding: 12
         }
+      },
+      scales: {
+        x: { 
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: { color: '#666' }
+        },
+        y: { 
+          beginAtZero: true,
+          grid: { color: 'rgba(0,0,0,0.04)' },
+          ticks: { color: '#666' }
+        }
+      },
+      elements: {
+        point: { radius: 0, hitRadius: 20, hoverRadius: 8 },
+        line: { tension: 0.35, borderWidth: 3 }
       }
     };
 
-    // ✅ Initialize charts
     const tempChart = new Chart(document.getElementById('tempChart'), {
-      ...chartConfig,
+      type: 'line',
       data: {
         labels: [],
         datasets: [{
-          label: 'Temperature (°C)',
+          label: 'Temperature',
           data: [],
           borderColor: '#ff6b6b',
-          backgroundColor: 'rgba(255,107,107,0.15)',
+          backgroundColor: 'rgba(255,107,107,0.12)',
           fill: true
         }]
-      }
+      },
+      options: chartOptions
     });
 
     const humidityChart = new Chart(document.getElementById('humidityChart'), {
-      ...chartConfig,
+      type: 'line',
       data: {
         labels: [],
         datasets: [{
-          label: 'Humidity (%)',
+          label: 'Humidity',
           data: [],
           borderColor: '#4ecdc4',
-          backgroundColor: 'rgba(78,205,196,0.15)',
+          backgroundColor: 'rgba(78,205,196,0.12)',
           fill: true
         }]
-      }
+      },
+      options: chartOptions
     });
 
     const moistureChart = new Chart(document.getElementById('moistureChart'), {
-      ...chartConfig,
+      type: 'line',
       data: {
         labels: [],
         datasets: [{
-          label: 'Soil Moisture (%)',
+          label: 'Soil Moisture',
           data: [],
           borderColor: '#96c93d',
-          backgroundColor: 'rgba(150,201,61,0.15)',
+          backgroundColor: 'rgba(150,201,61,0.12)',
           fill: true
         }]
-      }
+      },
+      options: chartOptions
     });
 
-    // ✅ Global dashboard variables
-    let dataPointCount = 0;
+    // =============================================
+    //  DATA LISTENERS
+    // =============================================
+    let dataCount = 0;
     const startTime = Date.now();
-    let isConnected = false;
 
-    // ✅ Chart update helper
-    function updateChart(chart, value, valueElementId, unit, indicatorId) {
+    function updateChartData(chart, value, valueEl, unit, indicator) {
       if (value == null || isNaN(value)) return;
 
-      const now = new Date().toLocaleTimeString();
-      chart.data.labels.push(now);
+      const time = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+      chart.data.labels.push(time);
       chart.data.datasets[0].data.push(value);
 
-      if (chart.data.labels.length > 20) {
+      if (chart.data.labels.length > 25) {
         chart.data.labels.shift();
         chart.data.datasets[0].data.shift();
       }
 
-      chart.update('none');
-      document.getElementById(valueElementId).textContent = value + unit;
+      chart.update();
+      document.getElementById(valueEl).textContent = value + unit;
 
-      const indicator = document.getElementById(indicatorId);
-      if (indicator) indicator.classList.add('online');
-
-      document.getElementById('lastUpdate').textContent = now;
-
-      dataPointCount++;
-    }
-
-    // ✅ Uptime + data count updater
-    function updateStatusBar() {
-      document.getElementById('dataPoints').textContent = dataPointCount;
-
-      const uptime = Date.now() - startTime;
-      const hours = Math.floor(uptime / 3600000);
-      const minutes = Math.floor((uptime % 3600000) / 60000);
-      const seconds = Math.floor((uptime % 60000) / 1000);
-      document.getElementById('uptime').textContent =
-        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds
-          .toString()
-          .padStart(2, '0')}`;
-    }
-
-    // ✅ Firebase data listeners
-    if (isFirebaseInitialized && database) {
-      try {
-        // Temperature
-        onValue(ref(database, `${productID}/temperature`), (snapshot) => {
-          if (snapshot.exists()) {
-            const temperature = parseFloat(snapshot.val());
-            updateChart(tempChart, temperature, 'tempValue', '°C', 'tempIndicator');
-
-            if (!isConnected) {
-              isConnected = true;
-              updateConnectionStatus("Connected - Receiving live data", "success");
-            }
-          }
-        });
-
-        // Humidity
-        onValue(ref(database, `${productID}/humidity`), (snapshot) => {
-          if (snapshot.exists()) {
-            const humidity = parseInt(snapshot.val());
-            updateChart(humidityChart, humidity, 'humidityValue', '%', 'humidityIndicator');
-          }
-        });
-
-        // Moisture
-        onValue(ref(database, `${productID}/soilPercent`), (snapshot) => {
-          if (snapshot.exists()) {
-            const moisture = parseInt(snapshot.val());
-            updateChart(moistureChart, moisture, 'moistureValue', '%', 'moistureIndicator');
-          }
-        });
-
-        // Connection
-        onValue(ref(database, ".info/connected"), (snapshot) => {
-          const connected = snapshot.val();
-          document.getElementById('systemStatus').textContent = connected ? 'Online' : 'Offline';
-          updateConnectionStatus(connected ? "Connected to Firebase" : "Connection lost", connected ? "success" : "danger");
-          isConnected = connected;
-        });
-
-        console.log("🔄 Firebase listeners attached successfully");
-
-      } catch (error) {
-        console.error("❌ Failed to setup Firebase listeners:", error);
+      if (indicator) {
+        document.getElementById(indicator).classList.add('online');
       }
-    } else {
-      console.error("❌ Cannot setup listeners - Firebase not initialized");
+
+      document.getElementById('lastUpdate').textContent = time;
+      dataCount++;
+      document.getElementById('dataPoints').textContent = dataCount;
     }
 
-    // ✅ Initialize dashboard after DOM load
-    document.addEventListener('DOMContentLoaded', () => {
-      console.log("🚀 Dashboard initialized");
-      setInterval(updateStatusBar, 1000);
-      updateStatusBar();
+    // Real-time listeners
+    onValue(ref(db, productID), (snapshot) => {
+      if (!snapshot.exists()) {
+        setConnection("No data found for this device", "warning");
+        return;
+      }
 
-      setTimeout(() => {
-        if (!isConnected) {
-          console.warn("⚠️ No data received after 5 seconds - check Firebase configuration");
-          updateConnectionStatus("No data received - check configuration", "warning");
-        }
-      }, 5000);
+      const data = snapshot.val();
+
+      // Temperature
+      if (data.temperature != null) {
+        updateChartData(tempChart, parseFloat(data.temperature), 'tempValue', '°C', 'tempIndicator');
+      }
+
+      // Humidity
+      if (data.humidity != null) {
+        updateChartData(humidityChart, parseInt(data.humidity), 'humidityValue', '%', 'humidityIndicator');
+      }
+
+      // Soil Moisture
+      if (data.soilPercent != null) {
+        updateChartData(moistureChart, parseInt(data.soilPercent), 'moistureValue', '%', 'moistureIndicator');
+      }
+
+      setConnection("Live data received", "success");
+    }, (error) => {
+      console.error("Firebase listener error:", error);
+      setConnection("Connection error: " + error.message, "danger");
     });
+
+    // Connection status
+    onValue(ref(db, ".info/connected"), (snap) => {
+      const connected = snap.val();
+      document.getElementById('systemStatus').textContent = connected ? "Online" : "Offline";
+      if (!connected) {
+        setConnection("Lost connection to Firebase", "danger");
+      }
+    });
+
+    // Uptime counter
+    setInterval(() => {
+      const diff = Date.now() - startTime;
+      const h = Math.floor(diff / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('uptime').textContent = 
+        `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
+    }, 1000);
+
+    // Initial status
+    setConnection("Waiting for first data...", "info");
   </script>
 
-</body>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>

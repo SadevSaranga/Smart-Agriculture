@@ -235,6 +235,28 @@
       localStorage.setItem('productID', productID);
       localStorage.setItem('groundType', groundType);
 
+      // Map select value → internal name & threshold
+      
+      let moisture_threshold = 40; // fallback
+
+      switch (groundType) {
+        case "dryzone":
+          groundType = "dryzone";
+          moisture_threshold = 25;
+          break;
+        case "wellirrigated":
+          groundType = "wellirrigated";
+          moisture_threshold = 45;
+          break;
+        case "greenhouse":
+          groundType = "greenhouse";
+          moisture_threshold = 65;
+          break;
+        default:
+          alert("Please select a valid ground type.");
+          return;
+      }
+
       const dbRef = firebase.database().ref(productID);
 
       dbRef.once('value')
@@ -249,7 +271,7 @@
             return dbRef.set({
               groundType: groundType,
               humidity: 0,
-              moisture_threshold: 40,
+              moisture_threshold: moisture_threshold,
               pumpStatus: "OFF",
               soilPercent: 0,
               temperature: 0,
