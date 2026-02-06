@@ -1,5 +1,6 @@
 nav {
     animation: navbar 50s infinite alternate;
+    background-color: rgba(1, 45, 21, 0.7); /* Add initial background */
 }
 
 
@@ -74,22 +75,15 @@ nav {
 }
 
 .profile-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fff;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-        }
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
-        .card-img-top {
-            height: 180px;
-            object-fit: cover;
-        }
-
- .navbar {
-     background-color: transparent !important;
- }
-
- 
-          
+.card-img-top {
+    height: 180px;
+    object-fit: cover;
+}
