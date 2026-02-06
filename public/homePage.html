@@ -6,63 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Green Pulse | Home</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-  <style>
-    body {
-      padding-top: 70px;
-      padding-bottom: 100px;
-    }
-    .profile-img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #28a745;
-    }
-    .card {
-      transition: transform 0.2s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    footer {
-      background-color: rgb(20, 45, 21);
-    }
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    .user-email {
-      font-size: 0.9rem;
-      color: #6c757d;
-    }
-    .user-info {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    .logout-btn {
-      margin-left: 15px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
+  <div data-include="Navbar.html" class="col-12 fixed-top"></div>
+
   <!-- Top Header -->
-  <div data-include="Navbar.html" class="col-12"></div>
-  <div class="container mt-4">
+  <div class="container mt-5 pt-4">
     <div class="d-flex justify-content-between align-items-center">
-      <div>
-        <h3>Hi, <span id="username">User</span> 👋</h3>
-        <p class="user-email mb-0" id="userEmail">Loading...</p>
-      </div>
-      <div class="user-info">
-        <img src="https://via.placeholder.com/50" alt="User DP" class="profile-img" id="userDP" />
-        <button class="btn btn-sm btn-outline-danger logout-btn" id="logoutBtn" style="display: none;">Logout</button>
-      </div>
+      <h3>Hi, <span id="username">User</span> 👋</h3>
+      <img src="https://lh3.googleusercontent.com/a/ACg8ocKVGMChBkYVb75FQvh8lALNKZ2MQcykmZW_TZeAM8_6Cw7ONVc=s288-c-no"
+        alt="User DP" class="profile-img" id="userDP"
+        style="width:56px;height:56px;border-radius:50%;object-fit:cover;" />
     </div>
   </div>
 
@@ -74,39 +30,43 @@
         monitoring of soil and environmental conditions to maintain optimal crop growth. Farm 2 – Field B focuses on
         dry-zone cultivation and operates under advanced water-conservation monitoring, helping farmers manage limited
         resources efficiently. Farm 3 – Green House C supports a climate-controlled greenhouse, providing intelligent
-        temperature, humidity, and moisture management for high-value or sensitive crops.</p>
-      
+        temperature, humidity, and moisture management for high-value or sensitive crops. Together, these packages
+        demonstrate our commitment to precision agriculture and sustainable farming practices.</p>
+
       <!-- Card 1 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/L6Db6cpYcBOrDZcrf-d_y1IZP29GPIIcsDCyJ5oz9hI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODE0QmZDKzlqNkwu/anBn"
-            class="card-img-top p-5 offset-1" style="width: 350px; height: 300px; " alt="Farm 1" />
+          <img
+            src="https://imgs.search.brave.com/Ls8UPh3NHvt6a56dT-Jt0OTRkVS8vJWL0urzTByqr_E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9kYW0u/dGhkc3RhdGljLmNv/bS9jb250ZW50L3By/b2R1Y3Rpb24vSmF4/V3ZzSWlLRFFwcDVz/MHdDY0FlUS9QT2tE/Rl9ReWZJTVpvVmJu/bWFfQ1NnL09yaWdp/bmFsJTIwZmlsZS90/aGUtYmVzdC1tdWxj/aGVzLWZvci1Tb3V0/aC1GbG9yaWRhLWhl/cm8uanBn"
+            class="card-img-top" alt="Farm 1" />
           <div class="card-body">
-            <h5 class="card-title"><a href="wet_zone.html">Wet Zone</a></h5>
+            <h5 class="card-title">Green Field A</h5>
             <p class="card-text">Well-irrigated zone</p>
           </div>
         </div>
       </div>
-      
+
       <!-- Card 2 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/p5xRounQrw4TFC4YZtkIFX8FdZS6kouFp8VcpBD09B8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL0kv/ODFnQUpkaUxpbkwu/anBn"
-            class="card-img-top p-5" style="width: 400px; height: 300px; " alt="Farm 2" />
+          <img
+            src="https://imgs.search.brave.com/c5F8MmvMhQhIEAAGwOwHSxIGkLIS239Fi33Q40Ak9Dc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/dGhlc3BydWNlLmNv/bS90aG1iL1gzdzFU/SmF5cHIzdC1oeWNr/N0lnSjRtbDJPUT0v/Zml0LWluLzE1MDB4/MjY2Ny9maWx0ZXJz/Om5vX3Vwc2NhbGUo/KTptYXhfYnl0ZXMo/MTUwMDAwKTpzdHJp/cF9pY2MoKS9zcHIt/Z2Fpbi1leHByZXNz/LXNvaWwtcGhtb2lz/dHVyZS1tZXRlci1k/aXNwbGF5LTItZGF2/aWQtd2lsbGV5LWRi/MGZhZmU2MjdiODQy/YjE5NTFmY2QxN2Fk/MDQ1Nzg4LmpwZWc"
+            class="card-img-top" alt="Farm 2" />
           <div class="card-body">
-            <h5 class="card-title"><a href="dry_zone.html">Dry Zone</a></h5>
+            <h5 class="card-title">Field B - Dry Zone</h5>
             <p class="card-text">Under water-conservation monitoring.</p>
           </div>
         </div>
       </div>
-      
+
       <!-- Card 3 -->
       <div class="col-md-4">
         <div class="card">
-          <img src="https://imgs.search.brave.com/5gcjyGIfbdySq6tyMhXvgYjhS2qeUeLeWhAhnKQq7gE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9zbWFydC1ncmVl/bmhvdXNlLXN5c3Rl/bS13aXRoLWNsaW1h/dGUtY29udHJvbC10/ZWNobm9sb2d5XzE5/ODA2Ny0xMjU1MDE1/LmpwZz9zZW10PWFp/c19oeWJyaWQmdz03/NDA"
-            class="card-img-top p-5" style="width: 400px; height: 300px;" alt="Farm 3" />
+          <img
+            src="https://imgs.search.brave.com/4r7YHSXb0KSDN4-fav_lGfx-aBm-sVmAVmILtTv0ZMc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aG9tZWRlcG90LmNv/bS9jYXRhbG9nL3By/b2R1Y3RJbWFnZXMv/MTAwMC8xYy8xYzY5/YmM5NS0wYTU1LTRl/MTUtOWRmNS02ZmY0/ODA5MTY5MThfMTAw/MC5qcGc"
+            class="card-img-top" alt="Farm 3" />
           <div class="card-body">
-            <h5 class="card-title"><a href="green_house.html">Green House</a></h5>
+            <h5 class="card-title">Green House C</h5>
             <p class="card-text">Climate-controlled greenhouse</p>
           </div>
         </div>
@@ -118,52 +78,55 @@
   <div class="container mt-5">
     <div class="card p-4">
       <h4>Select Ground & Crop Details</h4>
-      <form id="moistureForm">
+      <form>
         <div class="row g-3">
+          <!-- WiFi SSID -->
           <div class="col-md-6">
-            <label for="product_ID" class="form-label">Enter Product ID</label>
-            <input type="text" class="form-control" id="product_ID" placeholder="e.g. P2389" required />
-            <small class="text-muted">Enter the product/field identifier</small>
+            <label for="wifiSSID" class="form-label">WiFi SSID</label>
+            <input type="text" class="form-control" id="wifiSSID" placeholder="Enter WiFi network name" required />
           </div>
+
+          <!-- WiFi Password -->
           <div class="col-md-6">
-            <label for="moisture" class="form-label">Required Moisture (%)</label>
-            <input type="number" class="form-control" id="moisture" placeholder="e.g. 50" min="0" max="100" required />
-            <small class="text-muted">Value between 0-100</small>
+            <label for="wifiPassword" class="form-label">WiFi Password</label>
+            <input type="password" class="form-control" id="wifiPassword" placeholder="Enter WiFi password" required />
+          </div>
+
+          <!-- Select Ground -->
+          <div class="col-md-6">
+            <label for="fieldSelect" class="form-label">Select Ground</label>
+            <input type="text" class="form-control" id="product_ID" placeholder="e.g. P2389" required />
+          </div>
+
+          <!-- Ground Type -->
+          <div class="col-md-6">
+            <label for="groundType" class="form-label">Ground Type</label>
+            <select class="form-select" id="groundType" required>
+              <option value="" selected disabled>Choose ground type...</option>
+              <option value="greenhouse">Greenhouse</option>
+              <option value="dryzone">Dry Zone</option>
+              <option value="wellirrigated">Well Irrigated</option>
+            </select>
           </div>
         </div>
+
         <div class="mt-4">
-          <button type="submit" class="btn btn-success">
-            Update & Go to Dashboard
+          <button type="button" class="btn btn-success" onclick="updateValues()">
+            Go to Dashboard
           </button>
         </div>
       </form>
     </div>
   </div>
 
-  <!-- Loading/Status Indicators -->
-  <div class="container mt-3">
-    <div id="loadingIndicator" class="alert alert-info d-none" role="alert">
-      <span class="spinner-border spinner-border-sm me-2" role="status"></span>
-      Updating moisture threshold...
-    </div>
-    <div id="successIndicator" class="alert alert-success d-none" role="alert">
-      ✅ Moisture threshold updated successfully!
-    </div>
-    <div id="errorIndicator" class="alert alert-danger d-none" role="alert">
-      <strong>❌ Error:</strong> <span id="errorMessage">Could not update threshold</span>
-      <br><small id="errorDetails" class="mt-2"></small>
-    </div>
-  </div>
-
-  <!-- Connection Status -->
-  <div class="container mt-2">
-    <div id="connectionStatus" class="alert alert-warning d-none" role="alert">
-      🔌 Checking Firebase connection...
-    </div>
+  <!-- Edit Profile -->
+  <div class="container text-end mt-3">
+    <a href="edit_profile.html" class="btn btn-outline-primary">Edit Profile</a>
   </div>
 
   <!-- Footer -->
-  <footer class="container-fluid text-white mt-5 fixed-bottom">
+  <footer class="container-fluid text-white mt-5"
+    style="background-color: rgb(20, 45, 21); box-shadow: 20px 0px 0px 0px rgb(164, 157, 157);">
     <div class="text-center py-3 border-top">
       &copy; 2024 Green Pulse | All rights reserved.
       <a href="privacy.html" class="text-reset">Privacy Policy</a> |
@@ -171,7 +134,38 @@
     </div>
   </footer>
 
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+  <!-- Firebase core -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+
+  <!-- Firebase Realtime Database -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+
+
   <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyB5FfYx_example_key",
+      authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
+      databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
+      projectId: "smart-agriculture-system-fe7c6",
+      storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
+      messagingSenderId: "123456789",
+      appId: "1:123456789:web:example"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <script>
+
+    // Function to load external HTML files
     function includeHTML() {
       const elements = document.querySelectorAll('[data-include]');
 
@@ -196,240 +190,82 @@
         }
       });
     }
-
     // Call the function when the page loads
     document.addEventListener('DOMContentLoaded', includeHTML);
-  </script>
 
-  <!-- Firebase SDK -->
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-  <script>
-    // Firebase Configuration
-    const firebaseConfig = {
-      apiKey: "AIzaSyCmtglyxNbz94KGLMRqMDFDDmAtNntquBs",
-      authDomain: "smart-agriculture-system-fe7c6.firebaseapp.com",
-      databaseURL: "https://smart-agriculture-system-fe7c6-default-rtdb.firebaseio.com",
-      projectId: "smart-agriculture-system-fe7c6",
-      storageBucket: "smart-agriculture-system-fe7c6.appspot.com",
-      messagingSenderId: "1052704207717",
-      appId: "1:1052704207717:web:c89592a504d5fd11d7678c"
-    };
 
-    let database;
-    let auth;
-    let isConnected = false;
-    let currentUser = null;
 
-    // Initialize Firebase
-    try {
-      if (!firebase.apps.length) {
-        firebase.initializeApp(firebaseConfig);
-        console.log("✅ Firebase initialized successfully");
+
+
+
+    // 🔑 XOR key (same key MUST be used in Arduino)
+    const ENCRYPTION_KEY = "GreenPulse2024Key";
+
+    // 🔐 XOR encrypt / decrypt (same function)
+    function xorEncryptDecrypt(text) {
+      let result = "";
+      for (let i = 0; i < text.length; i++) {
+        result += String.fromCharCode(
+          text.charCodeAt(i) ^ ENCRYPTION_KEY.charCodeAt(i % ENCRYPTION_KEY.length)
+        );
       }
-      database = firebase.database();
-      auth = firebase.auth();
-
-      // Test connection
-      const connectedRef = database.ref(".info/connected");
-      connectedRef.on("value", (snap) => {
-        if (snap.val() === true) {
-          console.log("✅ Connected to Firebase");
-          isConnected = true;
-          hideConnectionStatus();
-        } else {
-          console.log("❌ Disconnected from Firebase");
-          isConnected = false;
-          showConnectionStatus("Reconnecting to Firebase...");
-        }
-      });
-
-    } catch (error) {
-      console.error("❌ Firebase initialization error:", error);
-      showError("Firebase initialization failed", error.message);
+      return btoa(result); // Base64 for Firebase safety
     }
 
-    // Authentication State Observer
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        currentUser = user;
-        displayUserInfo(user);
-        console.log("✅ User logged in:", user.email);
-      } else {
-        console.log("⚠️ No user logged in");
-        // Redirect to login page or show login prompt
-        // window.location.href = "login.html";
-        displayGuestInfo();
-      }
-    });
-
-    // Display User Information
-    function displayUserInfo(user) {
-      // Display user's display name or email
-      const displayName = user.displayName || user.email.split('@')[0];
-      document.getElementById('username').textContent = displayName;
-      
-      // Display user's email
-      document.getElementById('userEmail').textContent = user.email;
-      
-      // Display user's photo
-      if (user.photoURL) {
-        document.getElementById('userDP').src = user.photoURL;
-      } else {
-        // If no photo, use a default avatar with user's initial
-        const initial = displayName.charAt(0).toUpperCase();
-        document.getElementById('userDP').src = `https://ui-avatars.com/api/?name=${encodeURIComponent(displayName)}&background=28a745&color=fff&size=50`;
-      }
-      
-      // Show logout button
-      document.getElementById('logoutBtn').style.display = 'block';
-    }
-
-    // Display Guest Information (if not logged in)
-    function displayGuestInfo() {
-      document.getElementById('username').textContent = 'Guest';
-      document.getElementById('userEmail').textContent = 'Not logged in';
-      document.getElementById('userDP').src = 'https://ui-avatars.com/api/?name=Guest&background=6c757d&color=fff&size=50';
-      document.getElementById('logoutBtn').style.display = 'none';
-    }
-
-    // Logout Handler
-    document.getElementById('logoutBtn').addEventListener('click', function() {
-      auth.signOut().then(() => {
-        console.log("✅ User logged out");
-        alert("You have been logged out successfully!");
-        // Redirect to login page
-        // window.location.href = "login.html";
-      }).catch((error) => {
-        console.error("❌ Logout error:", error);
-        alert("Error logging out: " + error.message);
-      });
-    });
-
-    // Show/Hide Status Indicators
-    function showLoading() {
-      document.getElementById('loadingIndicator').classList.remove('d-none');
-      document.getElementById('successIndicator').classList.add('d-none');
-      document.getElementById('errorIndicator').classList.add('d-none');
-    }
-
-    function showSuccess() {
-      document.getElementById('loadingIndicator').classList.add('d-none');
-      document.getElementById('successIndicator').classList.remove('d-none');
-      document.getElementById('errorIndicator').classList.add('d-none');
-    }
-
-    function showError(message, details = '') {
-      document.getElementById('loadingIndicator').classList.add('d-none');
-      document.getElementById('successIndicator').classList.add('d-none');
-      document.getElementById('errorIndicator').classList.remove('d-none');
-      document.getElementById('errorMessage').textContent = message;
-      document.getElementById('errorDetails').textContent = details;
-    }
-
-    function hideAllIndicators() {
-      document.getElementById('loadingIndicator').classList.add('d-none');
-      document.getElementById('successIndicator').classList.add('d-none');
-      document.getElementById('errorIndicator').classList.add('d-none');
-    }
-
-    function showConnectionStatus(message) {
-      const statusEl = document.getElementById('connectionStatus');
-      statusEl.textContent = '🔌 ' + message;
-      statusEl.classList.remove('d-none');
-    }
-
-    function hideConnectionStatus() {
-      document.getElementById('connectionStatus').classList.add('d-none');
-    }
-
-    // Form submission handler
-    document.getElementById('moistureForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      updateValues();
-    });
-
-    // Main update function
     function updateValues() {
-      const moistureInput = document.getElementById("moisture").value;
+      const wifiSSID = document.getElementById("wifiSSID").value.trim();
+      const wifiPassword = document.getElementById("wifiPassword").value.trim();
       const productID = document.getElementById("product_ID").value.trim();
+      const groundType = document.getElementById("groundType").value;
 
-      // Validation
-      if (!productID) {
-        alert("⚠️ Please enter a Product ID");
+      if (!wifiSSID || !wifiPassword || !productID || !groundType) {
+        alert("Please fill in all fields.");
         return;
       }
 
-      const moisture = parseInt(moistureInput);
-      if (isNaN(moisture) || moisture < 0 || moisture > 100) {
-        alert("⚠️ Moisture value must be between 0 and 100");
-        return;
-      }
+      // 🔐 XOR encrypt WiFi password
+      const encryptedPassword = xorEncryptDecrypt(wifiPassword);
 
-      // Check if user is logged in
-      if (!currentUser) {
-        alert("⚠️ Please log in to update moisture values");
-        return;
-      }
+      console.log("Original Password:", wifiPassword);
+      console.log("Encrypted Password:", encryptedPassword);
 
-      // Check connection
-      if (!isConnected) {
-        showError("Not connected to Firebase", "Please check your internet connection and try again.");
-        return;
-      }
-
-      // Show loading
-      showLoading();
-
-      // Store locally
+      // Store locally (optional but OK)
+      localStorage.setItem('wifiSSID', wifiSSID);
+      localStorage.setItem('wifiPassword', wifiPassword);
       localStorage.setItem('productID', productID);
-      localStorage.setItem('moisture', moisture);
+      localStorage.setItem('groundType', groundType);
 
-      // Update Firebase
-      updateMoistureThreshold(productID, moisture);
-    }
+      const dbRef = firebase.database().ref(productID);
 
-    // Firebase update function
-    function updateMoistureThreshold(productID, threshold) {
-      const productRef = database.ref(productID);
-
-      console.log("Writing to Firebase path:", productID);
-
-      productRef.set({
-        temperature: "",
-        humidity: "",
-        soilPercent: "",
-        pumpStatus: "N/A",
-        moisture_threshold: threshold, 
-      })
-      .then(() => {
-        console.log("✅ Data saved successfully!");
-        showSuccess();
-        setTimeout(() => {
+      dbRef.once('value')
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            return dbRef.update({
+              wifiSSID: wifiSSID,
+              wifiPassword: encryptedPassword,
+              groundType: groundType
+            });
+          } else {
+            return dbRef.set({
+              groundType: groundType,
+              humidity: 0,
+              moisture_threshold: 40,
+              pumpStatus: "OFF",
+              soilPercent: 0,
+              temperature: 0,
+              wifiPassword: encryptedPassword,
+              wifiSSID: wifiSSID
+            });
+          }
+        })
+        .then(() => {
+          alert("Ground data saved successfully!");
           window.location.href = "dashboard.html";
-        }, 1500);
-      })
-      .catch((error) => {
-        console.error("❌ Firebase Error:", error);
-        showError("Failed to update moisture threshold", error.message);
-      });
+        })
+        .catch((error) => {
+          alert("Failed to save data: " + error.message);
+        });
     }
-
-    // Load saved values if available
-    window.addEventListener('load', function() {
-      const savedProductID = localStorage.getItem('productID');
-      const savedMoisture = localStorage.getItem('moisture');
-
-      if (savedProductID) {
-        document.getElementById('product_ID').value = savedProductID;
-      }
-      if (savedMoisture) {
-        document.getElementById('moisture').value = savedMoisture;
-      }
-    });
   </script>
 </body>
 
