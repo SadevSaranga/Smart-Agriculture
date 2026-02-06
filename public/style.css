@@ -86,3 +86,10 @@ nav {
             height: 180px;
             object-fit: cover;
         }
+
+ .navbar {
+     background-color: transparent !important;
+ }
+
+ 
+          
